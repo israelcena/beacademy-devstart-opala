@@ -19,7 +19,7 @@
         </div>
         <div class="d-flex flex-column gap-1">
           <h5>Ações:</h5>
-          <a class="btn btn-success btn-sm">Visualizar</a>
+          <a href="{{ route('users.showOne', $user->id) }}" class="btn btn-success btn-sm">Visualizar</a>
           <a class="btn btn-warning btn-sm">Editar</a>
           <a class="btn btn-danger btn-sm">Excluir</a>
         </div>
@@ -27,3 +27,4 @@
       @endforeach
     </div>
   </div>
+@endsection

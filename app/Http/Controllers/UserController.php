@@ -17,4 +17,9 @@ class UserController extends Controller
         $users = $this->model::all();
         return view('users.index', compact('users'));
     }
+    public function showOne($id)
+    {
+        $selectUser = $this->model::find($id);
+        return view('users.showOne', compact('selectUser'));
+    }
 }
