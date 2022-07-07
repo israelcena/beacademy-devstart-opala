@@ -25,6 +25,17 @@ class UserController extends Controller
         }
         return view('users.showOne', compact('selectUser'));
     }
+    public function create()
+    {
+        return view('users.create');
+    }
+    public function store(Request $req)
+    {
+        $newUser = $req->all();
+        $newUser['password'] = bcrypt($req->password);
+        $this->model->create($newUser);
+        return redirect()->route('users.index');
+    }
     public function destroy($id)
     {
         $userForDelete = $this->model->find($id);
