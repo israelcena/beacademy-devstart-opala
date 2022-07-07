@@ -18,4 +18,7 @@
 
 [Erick Macedo](https://user-images.githubusercontent.com/105465397/177873630-33b7d350-8709-4376-b7b9-7a1c286bfb02.png)
 
+![Adriano de Oliveira](https://user-images.githubusercontent.com/105465397/177875129-710a8392-de8f-4a23-9977-ef66d47a9dfd.png)
+
+[Adriano de Oliveira](https://user-images.githubusercontent.com/105465397/177875129-710a8392-de8f-4a23-9977-ef66d47a9dfd.png)
 
