@@ -15,7 +15,6 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 -Laravel <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" /> <br>
 -Bootstrap <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" /> <br>
 -Git <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" /> <br>
--GitHub <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" /> 
             
             
           
