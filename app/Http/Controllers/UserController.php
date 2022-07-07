@@ -20,7 +20,7 @@ class UserController extends Controller
     public function showOne($id)
     {
         $selectUser = $this->model::find($id);
-        if(!$selectUser){
+        if (!$selectUser) {
             return redirect()->route('users.index');
         }
         return view('users.showOne', compact('selectUser'));
