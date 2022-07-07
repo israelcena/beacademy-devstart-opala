@@ -17,19 +17,19 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 ## ✅ Tasks and Requirements:
 
-[✔] -  Banco de dados Mysql
+[] -  Banco de dados Mysql
 
-[✔] - Autenticação e Cadastro de Usuários
+[] - Autenticação e Cadastro de Usuários
 
-[✔] - Cadastro de Produtos
+[] - Cadastro de Produtos
 
-[✔] - Cadastro de Pedidos
+[] - Cadastro de Pedidos
 
-[✔] - Checkout
+[] - Checkout
 
-[✔] - Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
+[] - Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
 
-[✔] - Criação de testes unitários para todas as regras de negócio
+[] - Criação de testes unitários para todas as regras de negócio
 
 ## Squad Members
 
