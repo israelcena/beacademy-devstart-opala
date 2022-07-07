@@ -1,5 +1,6 @@
 # Squad Opala 
 
+Projeto empresarial de e-commerce que foca na efetivação do pagamento.
 
 ## ⚙️ Tecnologias
 
