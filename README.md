@@ -10,10 +10,10 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 ## ⚙️ Tecnologias
 
--Laravel <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" /> <br>
--Php <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" /><br>     
+-Laravel <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" /> <br>     
 -Bootstrap <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" /> <br>
 -Git <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" /> <br>
+-Php <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" /><br>
 
 ## ✅ Tasks and Requirements:
 
