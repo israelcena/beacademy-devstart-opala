@@ -37,6 +37,27 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 [] - Criação de testes unitários para todas as regras de negócio
 
+
+## Instalação
+
+### Requisitos
+
+- PHP 8
+- Composer
+
+### Comandos
+
+```bash
+  git clone https://github.com/israelcena/beacademy-devstart-opala.git
+  cd be-academy-devstart-opala
+  composer install
+```
+- Copiar arquivo .env para a pasta do projeto
+
+```bash
+  php artisan key:generate
+```
+
 ## Squad Members
 
 <table>
