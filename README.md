@@ -44,6 +44,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 - PHP 8
 - Composer
+- Banco de dados local Mysql
 
 ### Comandos
 
@@ -51,10 +52,9 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   git clone https://github.com/israelcena/beacademy-devstart-opala.git
   cd be-academy-devstart-opala
   composer install
-```
-- Copiar arquivo .env para a pasta do projeto
 
-```bash
+  Copiar arquivo .env para pasta do projeto
+
   php artisan key:generate
 ```
 
