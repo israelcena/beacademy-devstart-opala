@@ -15,7 +15,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 -Laravel <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" /> <br>
 -Bootstrap <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" /> <br>
 -Git <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" /> <br>
--NodeJS <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" />
+-NodeJS <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /> <br>
 -Npm <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" />
           
 
