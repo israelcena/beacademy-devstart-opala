@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('name');
             $table->string('birth_date');
-            $table->string('cep');
+            $table->string('cep')->nullable();
             $table->string('country');
             $table->string('place');
             $table->string('district');
