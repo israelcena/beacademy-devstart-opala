@@ -20,6 +20,7 @@ class UserFactory extends Factory
         return [
             'cpf' => fake()->unique()->cpf(),
             'name' => fake()->name(),
+            'is_admin' => false,
             'birth_date' => fake()->dateTime()->format('d-m-Y'),
             'cep' => fake()->postcode(),
             'country' => fake()->locale(),
