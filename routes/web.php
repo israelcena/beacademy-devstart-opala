@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';
+
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/', 'index')->name('users.index');
+    Route::post('/novousuario/criar', 'store')->name('users.store');
+    Route::get('/novousuario', 'create')->name('users.create');
+    Route::delete('/usuario/{id}', 'destroy')->name('users.destroy');
+    Route::get('/usuarios/{id}', 'showOne')->name('users.showOne');
+});
