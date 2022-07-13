@@ -8,6 +8,8 @@ use App\Http\Controllers\{
     AdminController,
 };
 
+use App\Http\Controllers\UserController;
+
 require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
