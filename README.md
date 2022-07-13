@@ -56,6 +56,12 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   Copiar arquivo .env para pasta do projeto
 
   php artisan key:generate
+  
+  php artisan breeze:install
+ 
+  npm install
+  npm run dev
+  php artisan migrate
 ```
 
 ## Squad Members
