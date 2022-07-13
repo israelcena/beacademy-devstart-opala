@@ -27,7 +27,7 @@
           <div class="dropdown">
             <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu" aria-labelledby="menuconta">
-              <li class="dropdown-item text-dark text-decoration-none"><a href="/usuarios/{{$id}}">Minha conta</a></li>
+              <li class="dropdown-item text-dark text-decoration-none"><a href="/usuarios/{{Auth::user()->id}}">Minha conta</a></li>
               <li class="dropdown-item text-dark text-decoration-none"><a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Sair</a>
