@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'cpf', 
         'name', 
+        'is_admin',
         'birth_date', 
         'cep', 
         'country', 
