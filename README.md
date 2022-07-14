@@ -50,7 +50,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 ```bash
   git clone https://github.com/israelcena/beacademy-devstart-opala.git
-  cd be-academy-devstart-opala
+  cd beacademy-devstart-opala
   composer install
 
   Copiar arquivo .env para pasta do projeto
