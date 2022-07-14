@@ -43,12 +43,22 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'cpf' => $request->cpf,
+            'birth_date' => $request->birth_date,
+            'cep' => $request->cep,
+            'country' => $request->country,
+            'place' => $request->place,
+            'city' => $request->city,
+            'district' => $request->district,
+            'residence_number' => $request->residence_number,
+            'phone' => $request->phone,
+            'is_admin' => false,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('success', 'Usuário criado com sucesso!');
     }
 }
