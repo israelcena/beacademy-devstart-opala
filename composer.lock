@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "285bbe26313a60e356c7ebaaa92c7155",
+    "content-hash": "3527d963bdfc8a05708e9553ee2a509d",
     "packages": [
         {
             "name": "brick/math",
@@ -4939,6 +4939,45 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "twbs/bootstrap-icons",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/icons.git",
+                "reference": "aa1ede051cd0cbc369be31ea097856e673e3573b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/icons/zipball/aa1ede051cd0cbc369be31ea097856e673e3573b",
+                "reference": "aa1ede051cd0cbc369be31ea097856e673e3573b",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "Official open source SVG icon library for Bootstrap",
+            "homepage": "https://icons.getbootstrap.com/",
+            "keywords": [
+                "bootstrap",
+                "icon font",
+                "icons",
+                "svg"
+            ],
+            "support": {
+                "issues": "https://github.com/twbs/icons/issues",
+                "source": "https://github.com/twbs/icons/tree/v1.9.0"
+            },
+            "time": "2022-07-13T20:08:59+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
