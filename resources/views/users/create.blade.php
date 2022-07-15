@@ -7,6 +7,12 @@
   <div class="container mt-5">
       <div class="row my-3">
           <h1 class="text-center">Criação de usuário</h1>
+          @if(Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
           <small>
               <span class="text-danger">*</span>
           Preencha todos os campos

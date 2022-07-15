@@ -35,7 +35,7 @@ class UserController extends Controller
         $newUser = $req->all();
         $newUser['password'] = bcrypt($req->password);
         $this->model->create($newUser);
-        return redirect()->route('users.index');
+        return redirect()->route('users.create')->with('success', 'Usuário criado com sucesso!');
     }
     public function destroy($id)
     {
