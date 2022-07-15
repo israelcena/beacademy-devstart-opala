@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class UserController extends Controller
     {
         return view('users.create');
     }
-    public function store(Request $req)
+    public function store(StoreUserRequest $req)
     {
         $newUser = $req->all();
         $newUser['password'] = bcrypt($req->password);
