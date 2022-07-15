@@ -1,34 +1,32 @@
-@extends('template.users')
-@section('title', 'Bem vindo ao Shop')
-@section('body')
-<div class="container px-4 py-5" id="icon-grid">
-    <h2 class="pb-2 border-bottom">Usuários do Sistema</h2>
-    <div class="row row-cols-1 row-cols-lg-2 g-4 py-5">
+<div>
+  <h2>Listagem de usuários/clientes</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
       @foreach($users as $user)
-      <div class="col d-flex align-items-start gap-4">
-        <img width="75px" src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="User {{ $user->name }} image">
-        <div>
-          <h4 class="fw-bold mb-0 border-bottom">{{ $user->name }}</h4>
-          <p>
-          CPF: {{$user->cpf}}<br/>
-          Data de Nascimento: {{$user->birth_date}}<br/>
-          Endereço: {{$user->place}}<br/>
-          Telefone: {{$user->phone}}<br/>
-          E-mail: {{$user->email}}<br/>
-        </p>
-        </div>
-        <div class="d-flex flex-column gap-1">
-          <h5>Ações:</h5>
-          <form class="d-flex flex-column gap-1" action="{{ route('users.destroy', $user->id) }}" method="POST">
-            <a href="{{ route('users.showOne', $user->id) }}" class="btn btn-success btn-sm">Visualizar</a>
-            <a class="btn btn-warning btn-sm">Editar</a>
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+      <tr>
+        <td>{{ $user->id }}</td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
+        <td>
+          <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Excluir</button>
           </form>
-        </div>
-      </div>
+        </td>
+      </tr>
       @endforeach
-    </div>
-  </div>
-@endsection
+    </tbody>
+  </table>
+  <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Criar novo usuário</a>
+  
+</div>
