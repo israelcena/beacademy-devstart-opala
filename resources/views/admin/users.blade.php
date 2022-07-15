@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <div>
         @include('layouts.navbar')
     </div>
@@ -14,4 +14,4 @@
         @include('layouts.sidebar')
 
     </div>
-</x-guest-layout>
+</x-app-layout>

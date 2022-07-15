@@ -10,7 +10,7 @@
             </div>
         @endif
     </div> --}}
-    <div>
-        @include('layouts.sidebar')
-    </div>
+        <div class="col-md-2 shadow-lg bg-light vh-100">
+            @include('components.sidebar')
+         </div>
 </x-app-layout>
