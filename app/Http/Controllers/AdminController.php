@@ -30,6 +30,19 @@ class AdminController extends Controller
         return view('admin.showUser', compact('user'));
     }
 
+    public function create_user()
+    {
+        return view('admin.createUser');
+    }
+    public function store(StoreUserRequest $request)
+    {
+        $user = $request->all();
+        $user['password'] = bcrypt($request->password);
+        $this->model->create($user);
+
+        return redirect()->route('admin.users')->with('success', 'Usuário cadastrado com sucesso!');
+    }
+
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -53,14 +66,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.user.show', $user->id)->with('success', 'Usuário atualizado com sucesso!');
     }
-    // public function update(StoreUserRequest $request, $id)
-    // {
-    //     $user = User::find($id);
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
-    //     $user->save();
-    //     return redirect()->route('admin.showUser', $user->id);
-    // }
     public function destroy($id)
     {
         $user = User::findOrFail($id);

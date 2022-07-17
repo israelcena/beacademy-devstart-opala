@@ -25,7 +25,7 @@
              @endif
             <div class="container">
                 <div class="row">
-                    <form class="row g-3 form-group" action="{{ route('admin.user.update', $user->id) }}" method="POST">
+                    <form id="form_edit" class="row g-3 form-group" action="{{ route('admin.user.update', $user->id) }}" method="POST">
                         @csrf
                     <h1>Editar dados de: {{$user->name}}</h1>
                     <div class="col-md-6">
@@ -148,7 +148,7 @@
                       @enderror
                     </div>
                     <div class="col-12">
-                      <button type="submit" class="btn btn-primary">Atualizar</button>
+                      <a class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form_edit').submit();">Atualizar</a>
                     </div>
                   </form>
                 </div>

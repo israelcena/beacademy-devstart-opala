@@ -16,7 +16,7 @@
         <div class="col-md-2 shadow-lg bg-light min-h-100">
             @include('layouts.sidebar')
         </div>
-        <div class="col-md-10 vh-100 text-center mt-5">
+        <div class="col-md-9 vh-100 text-center mt-5">
             @include('users.index')
         </div>
     </div>

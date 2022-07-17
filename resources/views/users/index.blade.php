@@ -2,16 +2,25 @@
   <h2>Clientes Registrados</h2>
   <small class="text-start">Clique no nome para mais detalhes</small>
   <hr>
+  <div class="container d-flex">
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-3">
+      <span class="me-1">
+      <i class="bi bi-person-plus"></i>
+      </span>
+      Criar novo usuário
+    </a>
+  </div>
  <div class="container">
   @if(Session::has('success'))
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ Session::get('success') }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-@endif
+  @endif
+ </div>
  </div>
   <table class="table table-striped table-hover">
-    <thead>
+    <thead class="">
       <tr>
         <th>ID</th>
         <th>Nome</th>
@@ -27,14 +36,12 @@
         <td>{{ $user->email }}</td>
         <td>
           <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a> 
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalDelete" data-id="{{$user->id}}">Excluir</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalDelete" data-id="{{$user->id}}" data-name="{{$user->name}}">Excluir</button>
         </td>
       </tr>
       @endforeach
     </tbody>
   </table>
-  <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Criar novo usuário</a>
-  
 </div>
 
 <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,8 +56,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Deseja realmente excluir este usuário?
+      <div class="modal-body text-center">
+        <p>Deseja realmente excluir este usuário?</p>
+        <strong><p id="user_name_deleted"></p></strong>
       </div>
       <div class="modal-footer">
         <input type="hidden" name="user_id" id="user_id" value="">
@@ -68,9 +76,12 @@
     btnDelete.forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         let id = e.target.dataset.id;
+        let name = e.target.dataset.name;
+        let user_name_deleted = document.querySelector('#user_name_deleted');
         // console.log(id);
         let form = document.getElementById('formDelete');
         form.action = `/admin/users/${id}`;
+        user_name_deleted.innerHTML = name;
       });
     });
   }
