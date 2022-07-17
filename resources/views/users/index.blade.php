@@ -1,9 +1,10 @@
 <div>
-  <h2>Listagem de usuários/clientes</h2>
+  <h2>Clientes Registrados</h2>
+  <small class="text-start">Clique no nome para mais detalhes</small>
   <hr>
  <div class="container">
   @if(Session::has('success'))
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ Session::get('success') }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
@@ -22,7 +23,7 @@
       @foreach($users as $user)
       <tr>
         <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
+        <td><a class="text-decoration-none fw-bold link-dark" href="{{ route('admin.user.show', $user->id) }}">{{ $user->name }}</a></td>
         <td>{{ $user->email }}</td>
         <td>
           <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a> 

@@ -23,10 +23,10 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.users', compact('users'));
     }
-    public function showOne($id)
+    public function show($id)
     {
-        $user = User::find($id);
-        return view('admin.users.showOne', compact('user'));
+        $user = User::findOrFail($id);
+        return view('admin.showUser', compact('user'));
     }
     public function update(StoreUserRequest $request, $id)
     {
@@ -40,6 +40,6 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin.users')->with('success', 'Usuário deletado com sucesso!');
+        return redirect()->route('admin.users')->with('success', 'Usuário excluído com sucesso!');
     }
 }
