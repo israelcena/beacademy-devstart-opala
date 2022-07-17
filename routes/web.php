@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     HomeController,
     UserController,
     AdminController,
+    ProductController
 };
 
 require __DIR__.'/auth.php';
@@ -32,3 +33,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/usuarios/novo', [AdminController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/usuarios/novo', [AdminController::class, 'store'])->name('admin.users.store');
 });
+
+Route::post('/produtos', [ProductController::class, 'store'])->name('products.store');
+Route::get('/produtos/create', [ProductController::class, 'create'])->name('products.create');
