@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -44,6 +45,34 @@ class UserController extends Controller
         $newUser['password'] = bcrypt($req->password);
         $this->model->create($newUser);
         return redirect()->route('users.create')->with('success', 'Usuário criado com sucesso!');
+    }
+
+    public function edit($id)
+    {
+        $selectUser = $this->model::findOrFail($id);
+
+        return view('users.edit', compact('selectUser'));
+    }
+
+    public function update(StoreClientRequest $req, $id)
+    {
+        $selectUser = User::findOrFail($id);
+
+        $selectUser['password'] = bcrypt($req->password);
+
+        $selectUser->update($req->only([
+                'name',
+                'password',
+                'birth_date',
+                'phone',
+                'place',
+                'residence_number',
+                'city',
+                'district',
+                'cep',
+                'country',
+        ]));
+        return redirect()->route('users.show', $selectUser->id)->with('success', 'Usuário atualizado com sucesso!');
     }
 
     public function destroy($id)

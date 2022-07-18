@@ -51,9 +51,9 @@
             </p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <a href="{{ route('users.edit', $selectUser->id) }}" class="btn btn-primary">Editar</a>
+    <div class="row mt-3">
+        <div class="col-md-12 text-start">
+            <a href="{{ route('users.edit', $selectUser->id) }}" class="btn btn-lg btn-primary">Editar</a>
         </div>
     </div>
 </div>

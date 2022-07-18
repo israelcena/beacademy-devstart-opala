@@ -66,6 +66,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin.user.show', $user->id)->with('success', 'Usuário atualizado com sucesso!');
     }
+    
     public function destroy($id)
     {
         $user = User::findOrFail($id);

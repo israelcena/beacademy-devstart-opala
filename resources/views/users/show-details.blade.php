@@ -3,7 +3,6 @@
         @include('layouts.navbar')
     </div>
     <div class="container">
-      
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ Session::get('success') }}
@@ -14,7 +13,7 @@
 
     <div class="row">
 
-        <div class="col-md-2 shadow min-vh-100 h-auto">
+        <div class="col-md-2 shadow min-vh-100">
           @include('components.sidebar-client')
         </div>
 
