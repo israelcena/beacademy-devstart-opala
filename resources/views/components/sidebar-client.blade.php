@@ -8,7 +8,7 @@
             <div class="container justify-content-center">
                 <ul class="navbar-nav w-100 text-center">
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="{{ route('users.showOne', $selectUser->id) }}">
+                        <a class="nav-link" href="{{ route('users.showDetails', $selectUser->id) }}">
                             <span>
                                 <i class="bi bi-bag-check-fill"></i>
                             </span>

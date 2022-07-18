@@ -14,7 +14,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware('auth')->group(function () {    
     Route::controller(UserController::class)->group(function () {
-    Route::get('/usuarios/{id}', 'showOne')->name('users.showOne');
+    Route::get('/perfil/{id}/edit', [UserController::class, 'show'])->name('users.edit');
+    Route::get('/perfil/{id}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/usuarios/{id}', 'showDetails')->name('users.showDetails');
     });
 });
 
