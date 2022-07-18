@@ -8,16 +8,28 @@
             <div class="container justify-content-center">
                 <ul class="navbar-nav w-100 text-center">
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/produtos">Produtos</a>
+                        <a class="nav-link" href="/admin/produtos">
+                            <span>
+                                <i class="bi bi-bag-check-fill"></i>
+                            </span>
+                            Produtos
+                        </a>
                     </li>
-                    {{-- <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/categorias">Categorias</a>
-                    </li> --}}
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="{{ route('admin.users') }}">Usuários</a>
+                        <a class="nav-link" href="{{ route('admin.users') }}">
+                            <span>
+                                <i class="bi bi-people-fill"></i>
+                            </span>
+                            Usuários
+                        </a>
                     </li>
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/pedidos">Pedidos</a>
+                        <a class="nav-link" href="/admin/pedidos">
+                            <span>
+                                <i class="bi bi-cart-check-fill"></i>
+                            </span>
+                            Pedidos
+                        </a>
                     </li>
                 </ul>
             </div>

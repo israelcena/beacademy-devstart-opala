@@ -15,24 +15,23 @@
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
 
-        <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end">
+        <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end align-items-center">
           <ul class="nav me-1">
             @if (Auth::check())
               @if (Auth::user()->is_admin == 1)
                 <li>
-                  <a href="{{ route('admin.index') }}" class="nav-link px-2 link-dark me-1">Dashboard</a>
+                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Dashboard</a>
                 </li>
               @endif
           </ul>
           <div class="dropdown">
-            <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
+            <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu" aria-labelledby="menuconta">
-              <li class="dropdown-item text-dark text-decoration-none">
-                <a class="text-dark text-decoration-none" href="/usuarios/{{Auth::user()->id}}">Minha conta</a>
+              <li class="">
+                <a class="dropdown-item" href="/usuarios/{{Auth::user()->id}}">Minha conta</a>
               </li>
-              <li class="dropdown-item text-dark text-decoration-none">
-                <a class="text-dark text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Sair</a>
+              <li class="">
+                <a type="submit" class="dropdown-item" href="{{ route('logout') }}">Sair</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>

@@ -2,14 +2,6 @@
     <div>
         @include('layouts.navbar')
     </div>
-    {{-- <div class="container">
-        @if(Session::has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ Session::get('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-    </div> --}}
     <div class="row">
 
         <div class="col-md-2 shadow-lg bg-light min-h-100">
@@ -17,6 +9,12 @@
         </div>
         <div class="col-md-10 vh-100 text-center mt-5">
             <div class="container">
+                @if(Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                 <h1 class="text-secondary fs-3">Dados de: {{$user->name}}</h1>
                 <hr>
                 <div class="row">
@@ -63,10 +61,16 @@
                             <strong>Data de atualização:</strong> {{$user->updated_at}}
                         </p>
                         <p>
-                            <strong>Administrador:</strong>{{$user->admin ? ' Sim' : ' Não'}}
+                            <strong>Administrador:</strong>{{$user->is_admin ? ' Sim' : ' Não'}}
                         </p>
                     </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12 text-start">
+                        <a href="{{route('admin.users')}}" class="btn btn-outline-secondary me-2">Voltar</a>
+                        
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
 </x-app-layout>
