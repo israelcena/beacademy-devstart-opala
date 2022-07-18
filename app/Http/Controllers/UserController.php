@@ -18,18 +18,19 @@ class UserController extends Controller
         $users = $this->model::all();
         return view('users.index', compact('users'));
     }
+
     public function showOne($id)
     {
-        $selectUser = $this->model::find($id);
-        if (!$selectUser) {
-            return redirect()->route('users.index');
-        }
+        $selectUser = $this->model::findOrFail($id);
+    
         return view('users.showOne', compact('selectUser'));
     }
+
     public function create()
     {
         return view('users.create');
     }
+
     public function store(StoreUserRequest $req)
     {
         $newUser = $req->all();
@@ -37,6 +38,7 @@ class UserController extends Controller
         $this->model->create($newUser);
         return redirect()->route('users.create')->with('success', 'Usuário criado com sucesso!');
     }
+    
     public function destroy($id)
     {
         $userForDelete = $this->model->find($id);

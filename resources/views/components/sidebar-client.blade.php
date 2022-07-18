@@ -1,6 +1,6 @@
-<div class="container-fluid min-h-100">
+<div class="container-fluid">
     <div class="row align-middle">
-        <h2 class="fs-5 text-center mt-3">Painel de controle</h2>
+        <h2 class="fs-5 text-center mt-3">Minha conta</h2>
     </div>
     <hr>
     <div class="row d-flex">
@@ -8,27 +8,19 @@
             <div class="container justify-content-center">
                 <ul class="navbar-nav w-100 text-center">
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/produtos">
+                        <a class="nav-link" href="{{ route('users.showOne', $selectUser->id) }}">
                             <span>
                                 <i class="bi bi-bag-check-fill"></i>
                             </span>
-                            Produtos
+                            Meu Perfil
                         </a>
                     </li>
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="{{ route('admin.users') }}">
+                        <a class="nav-link" href="#">
                             <span>
                                 <i class="bi bi-people-fill"></i>
                             </span>
-                            Usuários
-                        </a>
-                    </li>
-                    <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/pedidos">
-                            <span>
-                                <i class="bi bi-cart-check-fill"></i>
-                            </span>
-                            Pedidos
+                            Meus pedidos
                         </a>
                     </li>
                 </ul>

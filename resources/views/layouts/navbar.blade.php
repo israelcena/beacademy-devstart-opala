@@ -30,10 +30,10 @@
               <li class="">
                 <a class="dropdown-item" href="/usuarios/{{Auth::user()->id}}">Minha conta</a>
               </li>
-              <li class="">
-                <a type="submit" class="dropdown-item" href="{{ route('logout') }}">Sair</a>
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
+                  @csrf
                 </form>
               </li>
             </ul>

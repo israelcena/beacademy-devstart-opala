@@ -10,7 +10,7 @@
             </div>
         @endif
     </div> --}}
-        <div class="col-md-2 shadow-lg bg-light vh-100 rounded">
+        <div class="col-md-2 shadow-lg bg-light h-100 min-vh-100 rounded">
             @include('layouts.sidebar')
         </div>
 

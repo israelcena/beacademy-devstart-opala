@@ -14,10 +14,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware('auth')->group(function () {    
     Route::controller(UserController::class)->group(function () {
-    Route::get('/usuarios', 'index')->name('users.index');
-    Route::post('/novousuario/criar', 'store')->name('users.store');
-    Route::get('/novousuario', 'create')->name('users.create');
-    Route::delete('/usuario/{id}', 'destroy')->name('users.destroy');
     Route::get('/usuarios/{id}', 'showOne')->name('users.showOne');
     });
 });
