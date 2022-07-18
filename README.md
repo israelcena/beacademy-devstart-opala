@@ -27,11 +27,13 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 - Mysql
 - NodeJS
 
-### Settings
+### Initial Settings:
 
 ```bash
   git clone https://github.com/israelcena/beacademy-devstart-opala.git
+  
   cd beacademy-devstart-opala
+  
   composer install
 
   # Copiar arquivo .env para pasta do projeto
@@ -41,8 +43,22 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   php artisan breeze:install
  
   npm install
+  
   npm run dev
+  
   php artisan migrate
+```
+
+### Update with the latest version:
+
+```bash
+  git pull origin main
+  
+  php artisan optimize
+  
+  php artisan migrate
+
+  composer install
 ```
 
 ## Squad Members
