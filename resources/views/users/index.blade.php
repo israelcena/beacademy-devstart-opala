@@ -2,13 +2,29 @@
   <h2>Clientes Registrados</h2>
   <small class="text-start">Clique no nome para mais detalhes</small>
   <hr>
-  <div class="container d-flex">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 d-flex flex-row justify-content-between">
     <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-3">
       <span class="me-1">
       <i class="bi bi-person-plus"></i>
       </span>
       Criar novo usuário
     </a>
+    <form action="{{ route('admin.users') }}" method="GET">
+      <div class="input-group mb-3 me-1">
+        <input type="search" class="form-control" placeholder="Buscar usuário" aria-label="Buscar usuário" aria-describedby="basic-addon2" name="search">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            <span class="me-1">
+              <i class="bi bi-search"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
   </div>
  <div class="container">
   @if(Session::has('success'))
@@ -42,8 +58,15 @@
       @endforeach
     </tbody>
   </table>
+  <div class="container mb-3">
+    <div class="row d-flex justify-content-between align-items-center">
+      <div class="col-md-12">
+        {{ $users->links('pagination::bootstrap-5') }}
+      </div>
+    </div>
 </div>
 
+<!-- Modal -->
 <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <form method="POST" style="display: inline" enctype="multipart/form-data" id="formDelete">
     @csrf

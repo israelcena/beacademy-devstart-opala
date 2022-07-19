@@ -19,9 +19,12 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-    public function users()
+    public function users(Request $request)
     {
-        $users = User::all();
+        $users = $this->model->getUsers(
+            $request->search ?? '',
+        );
+    
         return view('admin.users', compact('users'));
     }
     public function show($id)
