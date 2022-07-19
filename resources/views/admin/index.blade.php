@@ -1,12 +1,17 @@
-<x-guest-layout>
+<x-app-layout>
     <div>
         @include('layouts.navbar')
     </div>
-</x-guest-layout>
- <div class="container mt-5">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <h1 class="text-danger">DASHBOARD  DO ADMIN</h1>
+    {{-- <div class="container">
+        @if(Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div> --}}
+        <div class="col-md-2 shadow-lg bg-light vh-100 rounded">
+            @include('layouts.sidebar')
         </div>
-    </div>
- </div>
+
+</x-app-layout>

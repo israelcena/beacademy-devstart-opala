@@ -32,7 +32,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/usuarios/{id}/edit', [AdminController::class, 'edit'])->name('admin.users.edit');
     Route::get('/admin/usuarios/novo', [AdminController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/usuarios/novo', [AdminController::class, 'store'])->name('admin.users.store');
-});
+                        /* ---------- PRODUTOS ADMINISTRADOR --------- */
+    Route::get('admin/produtos/novo', [AdminController::class, 'productCreate'])->name('admin.products.create');    
+    Route::get('/admin/produtos', [AdminController::class, 'products'])->name('admin.products');    
+    Route::get('/admin/produtos/{id}', [AdminController::class, 'productsShow'])->name('admin.products.show');    
+    Route::post('/admin/produto', [AdminController::class, 'store'])->name('products.store');
 
-Route::post('/produtos', [ProductController::class, 'store'])->name('products.store');
-Route::get('/produtos/create', [ProductController::class, 'create'])->name('products.create');
+});
