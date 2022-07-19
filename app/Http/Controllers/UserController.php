@@ -22,6 +22,7 @@ class UserController extends Controller
 
     public function show($id)
     {
+        $this->authorize('view', $this->model::find($id));
         $selectUser = $this->model::findOrFail($id);
     
         return view('users.show', compact('selectUser'));

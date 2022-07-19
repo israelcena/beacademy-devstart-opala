@@ -25,9 +25,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Gate::define('user-show', function (User $loggedUser, User $user) {
-            return $loggedUser->is($user);
-        });
     }
 }
