@@ -20,7 +20,7 @@
             @if (Auth::check())
               @if (Auth::user()->is_admin == 1)
                 <li>
-                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Dashboard</a>
+                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Painel</a>
                 </li>
               @endif
           </ul>

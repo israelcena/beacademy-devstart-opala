@@ -6,7 +6,7 @@
     </div>
 
     <div class="row d-flex">
-        <div class="col-md-6 text-start fs-5">
+        <div class="col-md-6 text-start fs-6">
             <p>
                 <strong>Nome:</strong> {{$selectUser->name}}
             </p>
@@ -42,7 +42,7 @@
             </p>
         </div>
 
-        <div class="col-md-6 fs-5">
+        <div class="col-md-6 fs-6">
             <p>
                 <strong>Data de cadastro:</strong> {{$selectUser->created_at}}
             </p>
@@ -53,7 +53,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-md-12 text-start">
-            <a href="{{ route('users.edit', $selectUser->id) }}" class="btn btn-lg btn-primary">Editar</a>
+            <a href="{{ route('users.edit', $selectUser->id) }}" class="btn btn-primary">Editar</a>
         </div>
     </div>
 </div>
