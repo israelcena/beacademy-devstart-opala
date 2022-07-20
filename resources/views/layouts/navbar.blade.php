@@ -20,7 +20,7 @@
             @if (Auth::check())
               @if (Auth::user()->is_admin == 1)
                 <li>
-                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Dashboard</a>
+                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Painel</a>
                 </li>
               @endif
           </ul>
@@ -28,12 +28,12 @@
             <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu" aria-labelledby="menuconta">
               <li class="">
-                <a class="dropdown-item" href="/usuarios/{{Auth::user()->id}}">Minha conta</a>
+                <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}">Minha conta</a>
               </li>
-              <li class="">
-                <a type="submit" class="dropdown-item" href="{{ route('logout') }}">Sair</a>
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
+                  @csrf
                 </form>
               </li>
             </ul>

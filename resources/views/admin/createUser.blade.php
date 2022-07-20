@@ -23,7 +23,7 @@
                         @csrf
                           <div class="col-md-6">
                               <label class="form-label" for="name">Nome</label>
-                              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome Completo">
+                              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome Completo" value="{{ old('name') }}">
                               @error('name')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -32,7 +32,7 @@
                           </div>
                           <div class="col-md-6">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control @error ('email') is-invalid @enderror" name="email" id="email">
+                            <input type="email" class="form-control @error ('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}">
                             @error('email')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
                           </div>
                           <div class="col-md-4">
                             <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control @error ('cpf') is-invalid @enderror" id="cpf" name="cpf">
+                            <input type="text" class="form-control @error ('cpf') is-invalid @enderror" id="cpf" name="cpf" value="{{ old('cpf') }}">
                             @error('cpf')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                           </div>
                           <div class="col-md-4">
                             <label for="birth_date" class="form-label">Data de Nascimento</label>
-                            <input type="date" class="form-control @error ('birth_date') is-invalid @enderror" id="birth_date" name="birth_date">
+                            <input type="date" class="form-control @error ('birth_date') is-invalid @enderror" id="birth_date" name="birth_date" value="{{ old('birth_date') }}">
                           </div>
                           @error('birth_date')
                             <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                           @enderror
                           <div class="col-md-4">
                             <label for="phone" class="form-label ">Telefone</label>
-                            <input type="text" class="form-control @error ('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Digite o formato (99) 99999-9999">
+                            <input type="text" class="form-control @error ('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Digite o formato (99) 99999-9999" value="{{ old('phone') }}">
                             @error('phone')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                           </div>
                           <div class="col-md-6">
                             <label for="place" class="form-label">Endereço</label>
-                            <input type="text" class="form-control @error ('place') is-invalid @enderror" id="place" name="place" placeholder="">
+                            <input type="text" class="form-control @error ('place') is-invalid @enderror" id="place" name="place" placeholder="" value="{{ old('place') }}">
                             @error('place')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
                           </div>
                           <div class="col-md-2">
                             <label for="residence_number" class="form-label">Número</label>
-                            <input type="text" class="form-control @error ('residence_number') is-invalid @enderror" id="residence_number" name="residence_number" placeholder="Casa, Apto...">
+                            <input type="text" class="form-control @error ('residence_number') is-invalid @enderror" id="residence_number" name="residence_number" placeholder="Casa, Apto..." value="{{ old('residence_number') }}">
                             @error('residence_number')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -105,7 +105,7 @@
                           </div>
                           <div class="col-md-2">
                             <label for="city" class="form-label">Cidade</label>
-                            <input type="text" class="form-control @error ('city') is-invalid @enderror" id="city" name="city">
+                            <input type="text" class="form-control @error ('city') is-invalid @enderror" id="city" name="city" value="{{ old('city') }}">
                             @error('city')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -114,7 +114,7 @@
                           </div>
                           <div class="col-md-2">
                             <label for="cep" class="form-label">CEP</label>
-                            <input type="text" class="form-control @error ('cep') is-invalid @enderror" id="cep" name="cep">
+                            <input type="text" class="form-control @error ('cep') is-invalid @enderror" id="cep" name="cep" value="{{ old('cep') }}">
                             @error('cep')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                           <div class="col-md-4">
                             <label for="district" class="form-label">Estado</label>
                             <select id="district" name="district" class="form-select @error ('district') is-invalid @enderror">
-                              <option></option>
+                              <option value="{{ old('district') }}"></option>
                               <option>Acre</option>
                               <option>Alagoas</option>
                               <option>Amapá</option>
@@ -161,7 +161,7 @@
                           </div>
                           <div class="col-md-2">
                             <label for="country" class="form-label">País</label>
-                            <input type="text" class="form-control @error ('country') is-invalid @enderror" id="country" name="country">
+                            <input type="text" class="form-control @error ('country') is-invalid @enderror" id="country" name="country" value="{{ old('country') }}">
                             @error('country')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

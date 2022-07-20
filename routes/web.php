@@ -14,11 +14,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware('auth')->group(function () {    
     Route::controller(UserController::class)->group(function () {
-    Route::get('/usuarios', 'index')->name('users.index');
-    Route::post('/novousuario/criar', 'store')->name('users.store');
-    Route::get('/novousuario', 'create')->name('users.create');
-    Route::delete('/usuario/{id}', 'destroy')->name('users.destroy');
-    Route::get('/usuarios/{id}', 'showOne')->name('users.showOne');
+        Route::get('/perfil/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::post('/perfil/{id}', [UserController::class, 'update'])->name('users.update');
+        Route::get('/perfil/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::get('/usuarios/{id}', 'showDetails')->name('users.showDetails');
     });
 });
 
