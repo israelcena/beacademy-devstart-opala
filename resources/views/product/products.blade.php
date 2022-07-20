@@ -18,8 +18,9 @@
     <div class="col-md-10 vh-100 text-center mt-5">
       <div class="container">
         <h1 class="text-secondary fs-3">Listagem de produtos da loja</h1>
-        <a href="/admin/produtos/novo" class="btn btn-sm btn-primary btn-lg active" role="button"
-          aria-pressed="true">Novo
+        <a href="/admin/produtos/novo" class="btn btn-sm btn-primary btn-lg active d-flex justify-content-start"
+          style="width: 105px;" role="
+          button" aria-pressed="true">Novo
           Produto</a>
         <hr>
         <div class="row">
@@ -43,7 +44,7 @@
                   <th scope="row">{{ $product->id }}</th>
                   <td>{{ $product->name }}</td>
                   <td>{{ $product->description }}</td>
-                  <td><img width='100px' src='{{$product->photo}}'> </td>
+                  <td><img width='100px' src='{{$product->photo}}' class="rounded"> </td>
                   <td>{{ $product->value }}</td>
                   <td>{{ $product->quantity }}</td>
                   <td>{{ date('d/m/Y H:i', strtotime($product->created_at)) }}</td>
@@ -52,6 +53,7 @@
                   </td>
                 </tr>
                 @endforeach
+                {{ $product->links() }}
               </tbody>
             </table>
           </div>

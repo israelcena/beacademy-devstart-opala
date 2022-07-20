@@ -4,7 +4,8 @@
 
 <div class="d-flex justify-content-center container mt-5">
   <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
-    <div class="about-product text-center mt-2"><img src='{{$product->photo}}' width="300">
+    <div class="about-product text-center mt-2"><img src='{{$product->photo}}' width="300"
+        class="border border-info rounded">
       <div>
         <h4>{{$product->name}}</h4>
       </div>
