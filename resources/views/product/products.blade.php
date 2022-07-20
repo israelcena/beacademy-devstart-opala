@@ -18,9 +18,9 @@
     <div class="col-md-10 vh-100 text-center mt-5">
       <div class="container">
         <h1 class="text-secondary fs-3">Listagem de produtos da loja</h1>
-        <a href="/admin/produtos/novo" class="d-flex justify-content-start"><button type="button"
-            class="btn btn-dark">Novo
-            Produto</button></a>
+        <a href="/admin/produtos/novo" class="btn btn-sm btn-primary btn-lg active" role="button"
+          aria-pressed="true">Novo
+          Produto</a>
         <hr>
         <div class="row">
           <div class="col-md-15 text-start text-center">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->float('value');
-            $table->string('photo');            
+            $table->string('photo', 1000)->change();    
             $table->integer('quantity');
             $table->timestamps();
         });

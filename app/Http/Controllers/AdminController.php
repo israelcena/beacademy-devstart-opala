@@ -44,37 +44,5 @@ class AdminController extends Controller
         return redirect()->route('admin.users')->with('success', 'Usuário excluído com sucesso!');
     }
 
-    public function products(){
-
-        $products = Product::all();
-        return view ('admin.products', compact('products'));
-    }
-
-    public function productsShow($id)
-    {
-        if(!$product = Product::find($id)){
-            return redirect()->route('admin.products');
-        }
-        return view('admin.showProduct', compact('product'));
-    }
-
-    public function productCreate()
-    {
-        return view('admin.productCreate');
-    }
-
-    public function store(Request $request)
-  {
-    $product = new Product;
-    $product->name = $request->name;
-    $product->description = $request->description;
-    $product->value = $request->value;
-    $product->photo = $request->photo;
-    $product->quantity = $request->quantity;
-    $product->save();
-
-    return redirect()->route('admin.productsCreate');
-
-  }
 
 }

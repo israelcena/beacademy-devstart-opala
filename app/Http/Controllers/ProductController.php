@@ -2,16 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Product;
+
 
 
 class ProductController extends Controller
 {
 
-  public function create()
+  public function products()
   {
-    return view('product.create');
+    $products = Product::all();
+    return view ('product.products', compact('products'));
+  }
+
+  public function showProduct($id)
+  {
+        if(!$product = Product::find($id)){
+            return redirect()->route('admin.product.products');
+        }
+        return view('product.showProduct', compact('product'));
+    }
+
+  public function productCreate()
+  {
+    return view('product.productCreate');
   }
 
   public function store(Request $request)
@@ -24,13 +41,8 @@ class ProductController extends Controller
     $product->quantity = $request->quantity;
     $product->save();
 
-    return redirect()->route('products.create');
-
+    return redirect()->route('admin.product.productCreate')->with('success', 'Produto cadastrado com sucesso!');
   }
 
-  //  public function index()
-  //  {
-    
-  //  }
-
+  
 }
