@@ -15,41 +15,37 @@
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
 
-      <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end">
-        <ul class="nav me-1">
-          @if (Auth::check())
-          @if (Auth::user()->is_admin == 1)
-          <li>
-            <a href="{{ route('admin.index') }}" class="nav-link px-2 link-dark me-1">Dashboard</a>
-          </li>
-          @endif
-        </ul>
-        <div class="dropdown">
-          <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="menuconta"
-            data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
-          <ul class="dropdown-menu" aria-labelledby="menuconta">
-            <li class="dropdown-item text-dark text-decoration-none">
-              <a class="text-dark text-decoration-none" href="/usuarios/{{Auth::user()->id}}">Minha conta</a>
-            </li>
-            <li class="dropdown-item text-dark text-decoration-none">
-              <a class="text-dark text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">Sair</a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-              </form>
-            </li>
+        <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end align-items-center">
+          <ul class="nav me-1">
+            @if (Auth::check())
+              @if (Auth::user()->is_admin == 1)
+                <li>
+                  <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary px-2 me-1">Painel</a>
+                </li>
+              @endif
+          </ul>
+          <div class="dropdown">
+            <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
+            <ul class="dropdown-menu" aria-labelledby="menuconta">
+              <li class="">
+                <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}">Minha conta</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>
+            </div>
+            @else
+            <ul class="nav">  
+              <li class="nav-link text-dark text-decoration-none"><a href="{{ route('login') }}" class="dropdown-item">Entrar</a></li>
+              <li class="nav-link text-dark text-decoration-none"><a href="{{ route('register') }}" class="dropdown-item">Cadastrar</a></li>
+            </ul>
+              @endif
           </ul>
         </div>
-        @else
-        <ul class="nav">
-          <li class="nav-link text-dark text-decoration-none"><a href="{{ route('login') }}"
-              class="dropdown-item">Entrar</a></li>
-          <li class="nav-link text-dark text-decoration-none"><a href="{{ route('register') }}"
-              class="dropdown-item">Cadastrar</a></li>
-        </ul>
-        @endif
-        </ul>
-      </div>
 
     </div>
 
