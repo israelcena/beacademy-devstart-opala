@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     HomeController,
     UserController,
     AdminController,
+    ProductController
 };
 
 require __DIR__.'/auth.php';
@@ -30,5 +31,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/usuarios/{id}', [AdminController::class, 'update'])->name('admin.user.update');
     Route::delete('/admin/users/{id}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('/admin/usuarios/{id}/edit', [AdminController::class, 'edit'])->name('admin.users.edit');
+                        /* ---------- PRODUTOS ADMINISTRADOR --------- */
     
+    Route::put('/admin/produtos/{id}', [ProductController::class, 'update'])->name('admin.products.update');                        
+    Route::get('/admin/produtos/{id}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::get('/admin/produtos/novo', [ProductController::class, 'productCreate'])->name('admin.product.productCreate');    
+    Route::post('/admin/produto', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::get('/admin/produtos', [ProductController::class, 'products'])->name('admin.product.products');    
+    Route::get('/admin/produtos/{id}', [ProductController::class, 'showProduct'])->name('admin.products.show');    
+    Route::delete('/admin/produtos/{id}',[ProductController::class, 'destroy'])->name('admin.destroy');
+
 });

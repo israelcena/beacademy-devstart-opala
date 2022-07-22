@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Product;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\StoreUserEditRequest;
 
@@ -76,4 +77,6 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->route('admin.users')->with('success', 'Usuário excluído com sucesso!');
     }
+
+
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 
+
 class UserController extends Controller
 {
     public function __construct(User $userModel)
