@@ -40,11 +40,11 @@
               </thead>
               <tbody>
                 @foreach($products as $product)
-                <tr>
+                <tr >
                   <th scope="row">{{ $product->id }}</th>
                   <td>{{ $product->name }}</td>
                   <td>{{ $product->description }}</td>
-                  <td><img width='100px' src='{{$product->photo}}' class="rounded"> </td>
+                  <td><img width='100px' src='{{$product->photo}}' class="rounded mx-auto d-block"> </td>
                   <td>{{ $product->value }}</td>
                   <td>{{ $product->quantity }}</td>
                   <td>{{ date('d/m/Y H:i', strtotime($product->created_at)) }}</td>

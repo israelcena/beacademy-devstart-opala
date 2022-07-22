@@ -9,14 +9,13 @@ use App\Models\Product;
 
 
 
-
 class ProductController extends Controller
 {
 
-  public function boot()
-{    
-    Paginator::useBootstrap();
-}
+  public function __construct(Product $product)
+  {
+    $this->model = $product;
+  }
 
   public function products()
   {
@@ -39,13 +38,17 @@ class ProductController extends Controller
 
   public function store(Request $request)
   {
-    $product = new Product;
-    $product->name = $request->name;
-    $product->description = $request->description;
-    $product->value = $request->value;
-    $product->photo = $request->photo;
-    $product->quantity = $request->quantity;
-    $product->save();
+    // $product = new Product;
+    // $product->name = $request->name;
+    // $product->description = $request->description;
+    // $product->value = $request->value;
+    // $product->photo = $request->photo;
+    // $product->quantity = $request->quantity;
+    // $product->save();
+
+    $data = $request->all();
+    
+    $this->model->create($data);
 
     return redirect()->route('admin.product.productCreate')->with('success', 'Produto cadastrado com sucesso!');
   }
@@ -59,4 +62,22 @@ class ProductController extends Controller
     return redirect()->route('admin.product.products');
   }
   
+  public function edit($id)
+  {
+
+    if(!$product = $this->model->find($id)){
+      return redirect()->route('admin.product.products');
+    }
+    return view('product.edit', compact('product'));   
+  }
+
+  public function update(Request $request, $id)
+  {
+    if(!$product = $this->model->find($id)){
+      return redirect()->route('admin.product.products');
+    }
+    $data = $request->all();
+    $product->update($data);
+    return redirect()->route('admin.product.products');
+  }
 }
