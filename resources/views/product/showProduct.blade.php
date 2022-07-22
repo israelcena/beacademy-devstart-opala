@@ -19,7 +19,8 @@
       </div>
     </div>
     <hr>
-    <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="#">Editar</a><br />
+    <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
+      href="{{route('admin.product.edit', $product->id)}}">Editar</a><br />
     <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="#">Excluir</a><br />
     <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
       href="/admin/produtos">Voltar</a>
