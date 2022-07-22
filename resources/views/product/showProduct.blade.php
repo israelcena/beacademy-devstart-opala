@@ -19,8 +19,16 @@
       </div>
     </div>
     <hr>
-    <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="#">Editar</a><br />
-    <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="#">Excluir</a><br />
+    <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="#">Editar</a><br/>
+    
+    <form action="{{ route('admin.destroy', $product->id)}}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type='submit' class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true">Deletar</button>
+    </form> <br>
+    
+    
+    
     <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
       href="/admin/produtos">Voltar</a>
   </div>

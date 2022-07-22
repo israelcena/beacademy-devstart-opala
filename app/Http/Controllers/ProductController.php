@@ -49,6 +49,14 @@ class ProductController extends Controller
 
     return redirect()->route('admin.product.productCreate')->with('success', 'Produto cadastrado com sucesso!');
   }
+  public function destroy($id){
 
+    if(!$product = Product::find($id)){
+      return redirect()->route('admin.product.products');
+    }
+    $product->delete();
+    
+    return redirect()->route('admin.product.products');
+  }
   
 }

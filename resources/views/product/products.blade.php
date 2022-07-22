@@ -53,7 +53,7 @@
                   </td>
                 </tr>
                 @endforeach
-                {{ $product->links() }}
+                
               </tbody>
             </table>
           </div>
