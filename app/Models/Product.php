@@ -11,10 +11,11 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'image_products' => 'mimes:jpeg, jpg, png, bmp, gif, svg', 
         'name', 
         'description', 
-        'value',
-        'photo', 
+        'atCost',
+        'salesPrice',
         'quantity', 
     ];
 

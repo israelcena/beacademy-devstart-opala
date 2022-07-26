@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
-
+use App\Http\Requests\StoreUpdateProductsFormRequest;
+use Validator;
 
 
 class ProductController extends Controller
 {
-
   public function __construct(Product $product)
   {
     $this->model = $product;
@@ -19,7 +19,7 @@ class ProductController extends Controller
 
   public function products()
   {
-    $products = Product::all();
+    $products = Product::paginate(5);
     return view ('product.products', compact('products'));
   }
 
@@ -36,22 +36,21 @@ class ProductController extends Controller
     return view('product.productCreate');
   }
 
-  public function store(Request $request)
+  public function store(StoreUpdateProductsFormRequest $request)
   {
-    // $product = new Product;
-    // $product->name = $request->name;
-    // $product->description = $request->description;
-    // $product->value = $request->value;
-    // $product->photo = $request->photo;
-    // $product->quantity = $request->quantity;
-    // $product->save();
+    $data = $request->all();  
 
-    $data = $request->all();
+    
+      $file = $request['image_products'];
+      $path = $file->store('itens', 'public');
+      $data['image_products'] = $path;
+    
     
     $this->model->create($data);
 
     return redirect()->route('admin.product.productCreate')->with('success', 'Produto cadastrado com sucesso!');
   }
+
   public function destroy($id){
 
     if(!$product = Product::find($id)){
@@ -64,20 +63,19 @@ class ProductController extends Controller
   
   public function edit($id)
   {
-
     if(!$product = $this->model->find($id)){
       return redirect()->route('admin.product.products');
     }
     return view('product.edit', compact('product'));   
   }
 
-  public function update(Request $request, $id)
+  public function update(StoreUpdateProductsFormRequest $request, $id)
   {
     if(!$product = $this->model->find($id)){
       return redirect()->route('admin.product.products');
     }
     $data = $request->all();
     $product->update($data);
-    return redirect()->route('admin.product.products');
+    return redirect()->route('admin.product.products')->with('success', 'Produto atualizado com sucesso!');
   }
 }
