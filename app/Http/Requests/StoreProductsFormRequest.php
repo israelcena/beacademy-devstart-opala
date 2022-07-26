@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateProductsFormRequest extends FormRequest
+class StoreProductsFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class StoreUpdateProductsFormRequest extends FormRequest
     {
         $rules = [
             'image_products' => [
-                'nullable',
+                'required',
                 'image',
                 'mimes:jpeg,png,jpg,gif,svg',
                 'max:2048'
@@ -36,21 +36,17 @@ class StoreUpdateProductsFormRequest extends FormRequest
                 'string', 
                 'max:255'
             ],
-            
             'description' => 'required|string|max:255',
-            
             'atCost' => [
                 'required',
                 'numeric', 
                 'min:0',
             ],
-            
             'salesPrice' => [
                 'required',
                 'numeric', 
                 'min:0',
             ],
-            
             'quantity' => 'required|integer|min:0',
             
         ];

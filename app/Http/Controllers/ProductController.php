@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
 use App\Http\Requests\StoreUpdateProductsFormRequest;
+use App\Http\Requests\StoreProductsFormRequest;
 use Validator;
 
 
@@ -36,11 +37,10 @@ class ProductController extends Controller
     return view('product.productCreate');
   }
 
-  public function store(StoreUpdateProductsFormRequest $request)
+  public function store(StoreProductsFormRequest $request)
   {
-    $data = $request->all();  
+      $data = $request->all();  
 
-    
       $file = $request['image_products'];
       $path = $file->store('itens', 'public');
       $data['image_products'] = $path;
@@ -75,6 +75,12 @@ class ProductController extends Controller
       return redirect()->route('admin.product.products');
     }
     $data = $request->all();
+
+    if($request->hasFile('image_products')){
+      $data['image_products'] = $request->file('image_products')
+      ->store('itens', 'public');
+    }
+    
     $product->update($data);
     return redirect()->route('admin.product.products')->with('success', 'Produto atualizado com sucesso!');
   }
