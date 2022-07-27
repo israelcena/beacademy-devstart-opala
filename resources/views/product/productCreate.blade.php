@@ -53,7 +53,7 @@
               <label class="label" for="description">Descricao</label>
             </div>
             <div class="form-field col-lg-16 ">
-              <input id="image_products" type="file" class="input-text js-input" name="image_products" />
+              <input id="image_products" type="file" class="input-text js-input" name="image_products" required />
               <label for="image_products" class="form-label">Selecione uma imagem</label>
             </div>
             <div class="form-field col-lg-12 d-grid gap-2 d-md-flex justify-content-md-end">

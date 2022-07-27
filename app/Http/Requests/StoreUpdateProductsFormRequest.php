@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateProductsFormRequest extends FormRequest
 {
@@ -24,31 +25,36 @@ class StoreUpdateProductsFormRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'image_products' => 'file|required|max:2048',
+            'image_products' => [
+                'required',
+                'file',
+                'mimes: jpeg, jpg, gif, png, svg, bmp',
+                'max:2048',
+            ],
             'name' => [
-                'required', 
-                'string', 
+                'required',
+                'string',
                 'max:255'
             ],
             'description' => 'required|string|max:255',
             'atCost' => [
                 'required',
-                'numeric', 
+                'numeric',
                 'min:0',
             ],
             'salesPrice' => [
                 'required',
-                'numeric', 
+                'numeric',
                 'min:0',
+
             ],
             'quantity' => 'required|integer|min:0',
-            
         ];
-        /*if($this->method('PUT')){
+        if ($this->method('PUT')) {
             $rules['image_products'] = [
                 'nullable',
-            ]; 
-        }*/
+            ];
+        }
         return $rules;
     }
 }
