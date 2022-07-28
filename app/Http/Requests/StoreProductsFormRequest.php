@@ -28,33 +28,34 @@ class StoreProductsFormRequest extends FormRequest
                 'required',
                 'image',
                 'mimes:jpeg,png,jpg,gif,svg',
-                'max:2048'
+                'max:2048',
             ],
-            
+
             'name' => [
-                'required', 
-                'string', 
+                'required',
+                'string',
                 'max:255'
             ],
             'description' => 'required|string|max:255',
             'atCost' => [
                 'required',
-                'numeric', 
+                'numeric',
                 'min:0',
             ],
             'salesPrice' => [
                 'required',
-                'numeric', 
+                'numeric',
                 'min:0',
             ],
             'quantity' => 'required|integer|min:0',
-            
+
         ];
-        /*if($this->method('PUT')){
+        if ($this->method('PUT')) {
             $rules['image_products'] = [
                 'nullable',
-            ]; 
-        }*/
+                'mimes: jpeg',
+            ];
+        }
         return $rules;
     }
 }
