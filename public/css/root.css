@@ -1,0 +1,6 @@
+:root {
+    --background-color: #FFF6EC; /*cor de fundo da página*/
+    --header-color: #FDB6C4; /*cor de fundo do cabeçalho da página*/
+    --footer-color: #463737; /*cor de fundo do rodapé da página*/
+    --highlight-color: #782B1A; /*cor dos buttons e icons do cabeçalho*/
+}

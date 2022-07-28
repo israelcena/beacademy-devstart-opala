@@ -1,6 +1,14 @@
-# Squad Opala 
+![header](https://pedrasecristais.com/wp-content/uploads/2018/06/PEDRA-OPALA-2-900x500.jpg)
+# <img src="https://img.icons8.com/color/2x/opal.png" width="30">Squad Opala 
+[![PHP 8][Php.com]][Php-url]
+[![Mysql][Mysql.com]][Mysql-url]
+[![NodeJS][Nodejs.com]][Nodejs-url]
+[![Laravel][Laravel.com]][Laravel-url]
+[![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![TailwindCss][TailwindCss.com]][TailwindCss-url]
 
-## Business project
+
+## <img src="https://img.icons8.com/color/2x/group-of-projects.png" width="30"> Business project 
 
 Criar um **CHECKOUT** para uma **PLATAFORMA** de **VENDAS ONLINE**
 
@@ -8,24 +16,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 *O contexto deste projeto é mínimo no que diz respeito a operações de e-commerce e foca na efetivação do pagamento, portanto questões como logística, descontos e afins não serão levados em consideração na descrição e execução do projeto.*
 
-## ✅ Tasks and Requirements:
-
-- Banco de dados Mysql
-- Autenticação e Cadastro de Usuários
-- Cadastro de Produtos
-- Cadastro de Pedidos
-- Checkout
-- Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
-- Criação de testes unitários para todas as regras de negócio
-
-
-## Installation
-
-### Requirements
-- PHP 8
-- Composer
-- Mysql
-- NodeJS
+## <img src="https://img.icons8.com/color/2x/settings.png" width="30"> Installation
 
 ### Initial Settings:
 
@@ -60,8 +51,17 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
   composer install
 ```
+## ✅ Tasks and Requirements:
 
-## Squad Members
+- Banco de dados Mysql
+- Autenticação e Cadastro de Usuários
+- Cadastro de Produtos
+- Cadastro de Pedidos
+- Checkout
+- Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
+- Criação de testes unitários para todas as regras de negócio
+
+## <img src="https://img.icons8.com/color/2x/handshake.png" width="30"> Squad Members
 
 <table>
   <tr>
@@ -115,3 +115,24 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
     </td>
   </tr>
 </table>
+
+
+<!-- LINKS & IMAGES -->
+[Php.com]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+[Php-url]: https://www.php.net
+
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+
+[Mysql.com]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
+[Mysql-url]: https://www.mysql.com
+
+[Nodejs.com]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[Nodejs-url]: https://nodejs.org/en/
+
+[TailwindCss.com]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[TailwindCss-url]: https://tailwindcss.com
+
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+
