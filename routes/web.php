@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/carrinho', [CartController::class, 'index'])->name('cart.index');
         Route::match(['get', 'post'], '/addcart/{id}', [CartController::class, 'add'])->name('cart.add');
         Route::get('/removecart/{key}', [CartController::class, 'remove'])->name('cart.remove');
+        Route::get('/updatecart/{key}/{quantity}', [CartController::class, 'update'])->name('cart.update');
+        Route::get('/finalizar', [CartController::class, 'finalize'])->name('cart.finalize');
     });
 });
 

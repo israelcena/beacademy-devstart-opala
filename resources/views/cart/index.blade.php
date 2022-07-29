@@ -69,85 +69,35 @@
                                 </tr>
                             @endforeach
                             @endif
-                            <tr>
-                                <td colspan="3" class="text-right fw-bold">Total</td>
-                                <td class="fw-bold">R$ @money($total)</td>
-                                <td></td>
-                            </tr>
+                            @if (@!empty($cart))
+                                <tr>
+                                   @php
+                                    $total = 0;
+                                    foreach($cart as $item) {
+                                        $total += ($item['quantity'] * $item['price']);
+                                    }
+                                    @endphp
+                                    <td colspan="3" class="text-right fw-bold">Total</td>
+                                    <td class="fw-bold">R$ @money($total)</td>
+                                    <td></td>
+                                </tr>
+                            @endif
                     </table>
                 </div>
             </div>
-            <div class="col-md-6 mt-3">
-                <div class="container">
-                    @if(Session::has('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ Session::get('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-6 d-flex">
+                        <a href="{{ route('home.index') }}" class="btn btn-success me-2">Continuar comprando</a>
+                  
+                        <a href="{{ route('cart.finalize') }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
+                        <form id="form-checkout" action="{{ route('cart.finalize') }}"></form>
+                    </div>
                 </div>
-                <div class="container">
-                    @if(Session::has('warning'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            {{ Session::get('warning') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="text-center">Endereço de entrega</h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form action="" method="post">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="name">Nome</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address">Endereço</label>
-                                            <input type="text" class="form-control" id="address" name="address" placeholder="Endereço">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="number">Número</label>
-                                            <input type="text" class="form-control" id="number" name="number" placeholder="Número">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="neighborhood">Bairro</label>
-                                            <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Bairro">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="city">Cidade</label>
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="Cidade">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="state">Estado</label>
-                                            <input type="text" class="form-control" id="state" name="state" placeholder="Estado">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cep">CEP</label>
-                                            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="phone">Telefone</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="observation">Observações</label>
-                                            <textarea class="form-control" id="observation" name="observation" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Finalizar Compra</button>
-                                        </div>
+    
+        </div>
+    </div>
+
+
 
 </x-app-layout>

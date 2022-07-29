@@ -50,7 +50,7 @@
           <ul class="nav">
             <li class="nav-link text-dark text-decoration-none">
               <a href="{{ route('cart.index') }}" class="">
-               <span><i class="bi bi-cart-fill text-secondary fs-4"></i></span>
+               <span><i class="bi bi-cart text-secondary fs-4"></i></span>
               </a>
             </li>
           </ul>
