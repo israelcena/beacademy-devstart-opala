@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     HomeController,
     UserController,
     AdminController,
+    CartController,
     ProductController
 };
 
@@ -19,6 +20,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/perfil/{id}', [UserController::class, 'update'])->name('users.update');
         Route::get('/perfil/{id}', [UserController::class, 'show'])->name('users.show');
         Route::get('/usuarios/{id}', 'showDetails')->name('users.showDetails');
+
+        Route::get('/doces', [ProductController::class, 'showCandy'])->name('products.show');
+        Route::get('/doces/{id}', [ProductController::class, 'showCandyOne'])->name('products.showOne');
+
+        Route::get('/carrinho', [CartController::class, 'index'])->name('cart.index');
+        Route::match(['get', 'post'], '/addcart/{id}', [CartController::class, 'add'])->name('cart.add');
+        Route::get('/removecart/{key}', [CartController::class, 'remove'])->name('cart.remove');
     });
 });
 

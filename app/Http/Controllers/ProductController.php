@@ -85,4 +85,26 @@ class ProductController extends Controller
     $product->update($data);
     return redirect()->route('admin.product.products')->with('success', 'Produto atualizado com sucesso!');
   }
+
+  public function searchProduct(Request $request)
+  {
+    $dataForm = $request->except('_token');
+    $products = $this->model->search($dataForm);
+    return view('product.products', compact('products', 'dataForm'));
+  }
+
+  public function showCandy()
+  {
+    $products = Product::all();
+    
+    return view('product.candy', compact('products'));
+  }
+
+  public function showCandyOne($id)
+  {
+    if (!$product = Product::find($id)) {
+      return redirect()->route('products.show');
+    }
+    return view('product.candyOne', compact('product'));
+  }
 }
