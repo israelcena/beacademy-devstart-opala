@@ -4,14 +4,6 @@
   <div>
     @include('layouts.navbar')
   </div>
-  <div class="container">
-    @if(Session::has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ Session::get('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-  </div>
   <div class="row">
 
     <div class="col-md-2 shadow-lg bg-light min-h-100">
@@ -28,6 +20,7 @@
             @endforeach
           </div>
           @endif
+          @include('product.alerts')
           <form class="contact-form row" action="{{route('admin.products.store')}}" method="POST"
             enctype="multipart/form-data">
             @csrf

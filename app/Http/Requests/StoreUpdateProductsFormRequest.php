@@ -28,7 +28,7 @@ class StoreUpdateProductsFormRequest extends FormRequest
             'image_products' => [
                 'required',
                 'image',
-                'mimes:jpeg,png,jpg,gif,svg,bmp',
+                'mimes:png,jpeg,jpg,svg,gif,bmp',
                 'max:2048',
             ],
             'name' => [
@@ -57,7 +57,7 @@ class StoreUpdateProductsFormRequest extends FormRequest
         if ($this->method('PUT')) {
             $rules['image_products'] = [
                 'nullable',
-                'mimes:jpeg,png,jpg,gif,svg,bmp',
+                'mimes:png,jpeg,jpg,svg,gif,bmp',
 
             ];
         }

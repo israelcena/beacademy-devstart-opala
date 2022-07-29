@@ -1,17 +1,21 @@
 <x-app-layout>
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+  setTimeout(() => {
+    const box = document.getElementById('box-message');
+
+    // 👇️ removes element from DOM
+    box.style.display = 'none';
+
+    // 👇️ hides element (still takes up space on page)
+    // box.style.visibility = 'hidden';
+  }, 1000);
+  </script>
 
   <div>
     @include('layouts.navbar')
   </div>
-  <div class="container">
-    @if(Session::has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ Session::get('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-  </div>
+
   <div class="row">
 
     <div class="col-md-2 shadow-lg bg-light min-h-100">
