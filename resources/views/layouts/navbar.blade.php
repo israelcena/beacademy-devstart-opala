@@ -38,7 +38,7 @@
                 </form>
               </li>
             </ul>
-            </div>
+          </div>
             @else
             <ul class="nav">  
               <li class="nav-link text-dark text-decoration-none"><a href="{{ route('login') }}" class="dropdown-item">Entrar</a></li>
@@ -46,6 +46,15 @@
             </ul>
               @endif
           </ul>
+
+          <ul class="nav">
+            <li class="nav-link text-dark text-decoration-none">
+              <a href="{{ route('cart.index') }}" class="">
+               <span><i class="bi bi-cart-fill text-secondary fs-4"></i></span>
+              </a>
+            </li>
+          </ul>
+
         </div>
 
     </div>
