@@ -58,7 +58,6 @@ class StoreUpdateProductsFormRequest extends FormRequest
             $rules['image_products'] = [
                 'nullable',
                 'mimes:png,jpeg,jpg,svg,gif,bmp',
-
             ];
         }
         return $rules;
