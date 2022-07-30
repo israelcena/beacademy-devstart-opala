@@ -1,5 +1,6 @@
 <x-app-layout>
   <link rel="stylesheet" href="/css/style.css">
+  @include('product.alert')
 
   <div>
     @include('layouts.navbar')
@@ -28,8 +29,7 @@
             @endforeach
           </div>
           @endif
-          <form class="contact-form row" action="{{route('admin.products.update', $product->id )}}" method="POST"
-            enctype="multipart/form-data">
+          <form class="contact-form row" action="{{route('admin.products.update', $product->id )}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-field col-lg-6">
@@ -37,23 +37,19 @@
               <label class="label" for="name">Nome</label>
             </div>
             <div class="form-field col-lg-6 ">
-              <input id="atCost" name="atCost" class="input-text js-input" type="number" step="0.01" min="0"
-                value="{{ $product->atCost }}" required>
+              <input id="atCost" name="atCost" class="input-text js-input" type="number" step="0.01" min="0" value="{{ $product->atCost }}" required>
               <label class="label" for="value">Preco de Custo</label>
             </div>
             <div class="form-field col-lg-6 ">
-              <input id="salesPrice" name="salesPrice" class="input-text js-input" type="number" step="0.01" min="0"
-                value="{{ $product->salesPrice }}" required>
+              <input id="salesPrice" name="salesPrice" class="input-text js-input" type="number" step="0.01" min="0" value="{{ $product->salesPrice }}" required>
               <label class="label" for="value">Preco de Venda</label>
             </div>
             <div class="form-field col-lg-6 ">
-              <input id="quantity" name="quantity" class="input-text js-input" type="number"
-                value="{{ $product->quantity }}" required>
+              <input id="quantity" name="quantity" class="input-text js-input" type="number" value="{{ $product->quantity }}" required>
               <label class="label" for="quantity">Quantidade</label>
             </div>
             <div class="form-field col-lg-12">
-              <input id="description" name="description" class="input-text js-input" type="text"
-                value="{{ $product->description }}" required>
+              <input id="description" name="description" class="input-text js-input" type="text" value="{{ $product->description }}" required>
               <label class="label" for="description">Descricao</label>
             </div>
             <div class="form-field col-lg-16 ">

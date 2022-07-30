@@ -20,13 +20,10 @@ class ProductController extends Controller
 
   public function products(Request $request)
   {
-    
-    
     $products = $this->model->getProducts(
       $request->search ?? ''
     );
     return view('product.products', compact('products'));
-    
   }
 
   public function showProduct($id)
