@@ -15,7 +15,6 @@
     <div class="col-md-2 shadow-lg bg-light min-h-100">
       @include('layouts.sidebar')
     </div>
-
     <div class="col-md-10 vh-100 text-center mt-5">
       <div class="container">
         <h1 id="font" class="text-center fs-2">Listagem de produtos da loja</h1>
@@ -24,6 +23,7 @@
           button" aria-pressed="true">Novo
           Produto</a>
         <hr>
+        @include('product.alerts')
         <div class="row">
           <div class="col-md-15 text-start text-center">
             <table class="table">
