@@ -23,7 +23,7 @@
                  </div>
 
                  <div class="row d-flex justify-content-center">
-                    <div class="col-md-6 ">
+                    <div class="col-md-8">
                         <table class="table table-sm table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -36,7 +36,7 @@
                             <tbody>
                                 @foreach($listItems as $orderItem)
                                     <tr>
-                                        <td>{{ $orderItem->product->name }}</td>
+                                        <td class="d-flex align-items-center"><img class="img-fluid me-3" src="{{ asset('/storage/' . $orderItem->image_products) }}" alt="Foto de {{ $orderItem->product->name }}" style="width: 50px"> {{ $orderItem->product->name }}</td>
                                         <td>{{ $orderItem->quantityItem }}</td>
                                         <td>{{ $orderItem->price }}</td>
                                         <td>{{ $orderItem->subtotal }}</td>

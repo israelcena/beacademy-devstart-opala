@@ -44,7 +44,7 @@
                                         <td class="text-center">
                                             <a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary">
                                                 <i class="bi bi-eye"></i>
-                                            Ver</a>
+                                            Ver itens</a>
                                         </td>
                                     </tr>
                                 @endforeach
