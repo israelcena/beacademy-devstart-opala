@@ -55,4 +55,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/produtos/{id}', [ProductController::class, 'showProduct'])->name('admin.products.show');    
     Route::delete('/admin/produtos/{id}',[ProductController::class, 'destroy'])->name('admin.destroy');
 
+    Route::get('/admin/pedidos', [OrderController::class, 'orders'])->name('admin.orders');
+    Route::get('/admin/pedidos/{id}', [OrderController::class, 'showOrder'])->name('admin.orders.show');
+    Route::get('/admin/pedidos/{id}/edit', [OrderController::class, 'edit'])->name('admin.orders.edit');
+    Route::put('/admin/pedidos/{id}', [OrderController::class, 'update'])->name('admin.orders.update');
+
 });
