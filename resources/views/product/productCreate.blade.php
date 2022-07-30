@@ -4,21 +4,13 @@
   <div>
     @include('layouts.navbar')
   </div>
-  <div class="container">
-    @if(Session::has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ Session::get('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-  </div>
   <div class="row">
-
     <div class="col-md-2 shadow-lg bg-light min-h-100">
       @include('layouts.sidebar')
     </div>
     <div class="col-md-9 mt-5">
       <div class="container">
+        @include('product.alert')
         <div class="row">
           <h1 id="font" class="text-center fs-2">Cadastrar Produto</h1>
           @if($errors->any())
@@ -28,8 +20,7 @@
             @endforeach
           </div>
           @endif
-          <form class="contact-form row" action="{{route('admin.products.store')}}" method="POST"
-            enctype="multipart/form-data">
+          <form class="contact-form row" action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-field col-lg-6">
               <input id="name" name="name" class="input-text js-input" type="text" required>
@@ -40,8 +31,7 @@
               <label class="label" for="value">Preco de Custo</label>
             </div>
             <div class="form-field col-lg-6 ">
-              <input id="salesPrice" name="salesPrice" class="input-text js-input" type="number" step="0.01" min="0"
-                required>
+              <input id="salesPrice" name="salesPrice" class="input-text js-input" type="number" step="0.01" min="0" required>
               <label class="label" for="value">Preco de Venda</label>
             </div>
             <div class="form-field col-lg-6 ">

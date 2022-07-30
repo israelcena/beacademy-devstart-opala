@@ -11,7 +11,6 @@
     </div>
     @endif
   </div>
-
   <div class="row">
     <div class="col-md-2 shadow-lg bg-light min-h-100">
       @include('layouts.sidebar')
@@ -20,8 +19,7 @@
       <div class="container">
         <div class="d-flex justify-content-center container mt-5">
           <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
-            <div class="about-product text-center mt-2"><img width="300px"
-                src="{{asset('storage/'.$product->image_products)}}" class="border border-info rounded">
+            <div class="about-product text-center mt-2"><img width="300px" src="{{asset('storage/'.$product->image_products)}}" class="border border-info rounded">
               <div>
                 <h4>{{$product->name}}</h4>
               </div>
@@ -43,11 +41,9 @@
             <form action="{{ route('admin.destroy', $product->id)}}" method="POST">
               @method('DELETE')
               @csrf
-              <button type='submit' class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
-                style="width:100%">Deletar</button>
+              <button type='submit' class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" style="width:100%">Deletar</button>
             </form><br>
-            <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
-              href="{{route('admin.product.edit', $product->id)}}">Editar</a><br />
+            <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true" href="{{route('admin.product.edit', $product->id)}}">Editar</a><br />
           </div>
         </div>
       </div>
