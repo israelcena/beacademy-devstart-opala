@@ -14,6 +14,8 @@ class Order extends Model
     protected $fillable = [
         'status',
         'user_id',
+        'payment',
+        'total',
     ];
 
     public function user()
@@ -26,9 +28,14 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
-    public function total()
+    public function total($cart)
     {
-        return $this->orderItems->sum('price');
+        $cart = session()->get('cart');
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
     }
 
     public function status()

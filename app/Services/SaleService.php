@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\DB;
 
 class SaleService {
 
+    public function total() {
+        $cart = session()->get('cart');
+        $total = 0;
+        if ($cart) {
+            foreach ($cart as $item) {
+                $total += $item['price'] * $item['quantity'];
+            }
+        }
+        return $total;
+    }
+    
+
     public function finalizeSale($products = [], User $user) {
 
         
@@ -21,6 +33,7 @@ class SaleService {
             $order = new Order();
             $order->user_id = $user->id;
             $order->status = 'Processando';
+            $order->total = $this->total($products);
             $order->save();
 
             $cart = Session::get('cart');
@@ -45,10 +58,8 @@ class SaleService {
          catch (\Exception $e) {
             DB::rollBack();
             Log::error('ERRO: VENDA SERVICE', ['message' => $e->getMessage()]);
-            return [
-                'success' => false,
-                'message' => 'Não foi possível finalizar a venda. Tente novamente mais tarde.'
-            ];
+            return ['status' => 'error', 'message' => 'Erro ao finalizar venda! Tente mais tarde.'];
+                
         }
         // $order = $user->orders()->create([
         //     'status' => 'open',

@@ -123,7 +123,7 @@ class OrderController extends Controller
         $iduser = Auth::user()->id;
         $order = $this->orders::create([
             'user_id' => $iduser,
-            'status' => 'Pendente',
+            'status' => 'Processando',
             'total' => 0,
         ]);
         $order->save();
@@ -186,4 +186,31 @@ class OrderController extends Controller
         return view('orders.edit', $data, compact('selectOrder'));
     }
 
+    public function checkout(Request $request)
+    {
+        $user = Auth::user();
+        // dd($user);
+        
+        $cart = session()->get('cart');
+        
+        return view('checkout.index', compact('cart', 'user'));
+    }
 }
+        // $selectOrder = $this->orders::findOrFail($id);
+        // $iduser = Auth::user()->id;
+        // $idorder = $selectOrder->id;
+        // $listOrderItems = $this->orderItems::where('order_id', $id)
+        // ->orderBy('created_at', 'desc')
+        // ->get();
+
+        // $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
+        // ->where('order_id', $idorder)
+        // ->get([ 'order_items.*', 'order_items.quantity as quantityItem']);
+        
+        // $data = [];
+        // $data['listItems'] = $listItems;
+        
+        // return view('orders.checkout', $data, compact('selectOrder'));
+    // }
+
+// }

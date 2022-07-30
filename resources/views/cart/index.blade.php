@@ -90,7 +90,7 @@
                     <div class="col-md-6 d-flex">
                         <a href="{{ route('home.index') }}" class="btn btn-success me-2">Continuar comprando</a>
                   
-                        <a href="{{ route('cart.finalize') }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
+                        <a href="{{ route('cart.finalize', $user) }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
                         <form id="form-checkout" action="{{ route('cart.finalize') }}"></form>
                     </div>
                 </div>
