@@ -20,7 +20,7 @@ class SaleService {
             DB::beginTransaction();
             $order = new Order();
             $order->user_id = $user->id;
-            $order->status = 'Aguardando Pagamento';
+            $order->status = 'Processando';
             $order->save();
 
             $cart = Session::get('cart');
@@ -32,6 +32,7 @@ class SaleService {
                 $orderItem->price = $product['price'];
                 $orderItem->quantity = $product['quantity'];
                 $orderItem->subtotal = $product['price'] * $product['quantity'];
+                $orderItem->image_products = $product['photo'];
                 $orderItem->save();
             }
             

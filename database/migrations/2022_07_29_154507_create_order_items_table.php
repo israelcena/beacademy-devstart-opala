@@ -25,6 +25,7 @@ return new class extends Migration
             ->onUpdate('cascade');
             $table->integer('quantity');
             $table->decimal('subtotal', 10, 2);
+            $table->string('image_products')->nullable();
             $table->timestamps();
         });
     }

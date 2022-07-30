@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     UserController,
     AdminController,
     CartController,
+    OrderController,
     ProductController
 };
 
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/removecart/{key}', [CartController::class, 'remove'])->name('cart.remove');
         Route::get('/updatecart/{key}/{quantity}', [CartController::class, 'update'])->name('cart.update');
         Route::get('/finalizar', [CartController::class, 'finalize'])->name('cart.finalize');
+
+        Route::get('/pedidos/historico/{id}', [OrderController::class, 'historic'])->name('orders.historic');
+        Route::get('/pedidos/{id}', [OrderController::class, 'show'])->name('orders.show');
     });
 });
 

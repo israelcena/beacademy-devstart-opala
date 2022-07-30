@@ -31,5 +31,23 @@ class Order extends Model
         return $this->orderItems->sum('price');
     }
 
+    public function status()
+    {
+        $descricao = '';
+
+        switch ($this->status) {
+            case '1':
+                $descricao = 'Pendente';
+                break;
+            case '2':
+                $descricao = 'Aprovado';
+                break;
+            case '3':
+                $descricao = 'Recusado';
+                break;
+    }
+        return $descricao;
+    }
+
     
 }
