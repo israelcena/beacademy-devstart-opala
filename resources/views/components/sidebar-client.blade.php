@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('orders.historic', $selectUser->id) }}">
                             <span>
                                 <i class="bi bi-people-fill"></i>
                             </span>

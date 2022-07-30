@@ -1,4 +1,4 @@
-<div class="container-fluid min-h-100">
+<div class="container-fluid min-vh-100">
     <div class="row align-middle">
         <h2 class="fs-5 text-center mt-3">Painel de controle</h2>
     </div>
@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item fs-5 border-bottom">
-                        <a class="nav-link" href="/admin/pedidos">
+                        <a class="nav-link" href="{{ route('admin.orders') }}">
                             <span>
                                 <i class="bi bi-cart-check-fill"></i>
                             </span>

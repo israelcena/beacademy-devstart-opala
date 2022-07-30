@@ -6,6 +6,8 @@ use App\Http\Controllers\{
     HomeController,
     UserController,
     AdminController,
+    CartController,
+    OrderController,
     ProductController
 };
 
@@ -19,6 +21,18 @@ Route::middleware('auth')->group(function () {
         Route::post('/perfil/{id}', [UserController::class, 'update'])->name('users.update');
         Route::get('/perfil/{id}', [UserController::class, 'show'])->name('users.show');
         Route::get('/usuarios/{id}', 'showDetails')->name('users.showDetails');
+
+        Route::get('/doces', [ProductController::class, 'showCandy'])->name('products.show');
+        Route::get('/doces/{id}', [ProductController::class, 'showCandyOne'])->name('products.showOne');
+
+        Route::get('/carrinho', [CartController::class, 'index'])->name('cart.index');
+        Route::match(['get', 'post'], '/addcart/{id}', [CartController::class, 'add'])->name('cart.add');
+        Route::get('/removecart/{key}', [CartController::class, 'remove'])->name('cart.remove');
+        Route::get('/updatecart/{key}/{quantity}', [CartController::class, 'update'])->name('cart.update');
+        Route::get('/finalizar', [CartController::class, 'finalize'])->name('cart.finalize');
+
+        Route::get('/pedidos/historico/{id}', [OrderController::class, 'historic'])->name('orders.historic');
+        Route::get('/pedidos/{id}', [OrderController::class, 'showItems'])->name('orders.show');
     });
 });
 
@@ -40,5 +54,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/produtos', [ProductController::class, 'products'])->name('admin.product.products');    
     Route::get('/admin/produtos/{id}', [ProductController::class, 'showProduct'])->name('admin.products.show');    
     Route::delete('/admin/produtos/{id}',[ProductController::class, 'destroy'])->name('admin.destroy');
+
+    Route::get('/admin/pedidos', [OrderController::class, 'orders'])->name('admin.orders');
+    Route::get('/admin/pedidos/{id}', [OrderController::class, 'showOrder'])->name('admin.orders.show');
+    Route::get('/admin/pedidos/{id}/edit', [OrderController::class, 'edit'])->name('admin.orders.edit');
+    Route::put('/admin/pedidos/{id}', [OrderController::class, 'update'])->name('admin.orders.update');
 
 });
