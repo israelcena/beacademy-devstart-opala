@@ -18,6 +18,18 @@ class Product extends Model
         'salesPrice',
         'quantity' 
     ];
-
     
+    public function getProducts(string $search = null)
+    {
+        $products = $this->where( function ($query) use ($search){
+            if($search){
+                $query->where('description', 'LIKE', "%{$search}%");
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+            }
+        })
+        ->paginate(5);
+
+        return $products;
+   }
+
 }

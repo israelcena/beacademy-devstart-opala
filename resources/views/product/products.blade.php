@@ -23,6 +23,19 @@
           style="width: 105px;" role="
           button" aria-pressed="true">Novo
           Produto</a>
+        <div class="col-sm mt-2 mb-5">
+        <form action="{{ route('admin.product.products')}}" method="GET">
+          <div>
+              <input type="search" class="form-control rounded" name="search" style="width: 200px;">
+              <button type="submit" class="btn btn-sm btn-primary btn-lg active d-flex justify-content-start">Pesquisar</button>
+          </div>
+        </form>
+
+        </div>  
+
+      <div>
+
+      </div>
         <hr>
         <div class="row">
           <div class="col-md-15 text-start text-center">

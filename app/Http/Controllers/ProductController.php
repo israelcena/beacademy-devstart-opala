@@ -18,10 +18,15 @@ class ProductController extends Controller
     $this->model = $product;
   }
 
-  public function products()
+  public function products(Request $request)
   {
-    $products = Product::paginate(5);
+    
+    
+    $products = $this->model->getProducts(
+      $request->search ?? ''
+    );
     return view('product.products', compact('products'));
+    
   }
 
   public function showProduct($id)
