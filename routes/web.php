@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/finalizar', [CartController::class, 'finalize'])->name('cart.finalize');
 
         Route::get('/pedidos/historico/{id}', [OrderController::class, 'historic'])->name('orders.historic');
-        Route::get('/pedidos/{id}', [OrderController::class, 'show'])->name('orders.show');
+        Route::get('/pedidos/{id}', [OrderController::class, 'showItems'])->name('orders.show');
     });
 });
 

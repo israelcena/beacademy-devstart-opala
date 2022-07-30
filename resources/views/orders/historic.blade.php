@@ -42,7 +42,7 @@
                                         <td>{{ $order->status }}</td>
                                         {{-- <td>{{ $order->total }}</td> --}}
                                         <td class="text-center">
-                                            <a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary ">
+                                            <a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary">
                                                 <i class="bi bi-eye"></i>
                                             Ver</a>
                                         </td>

@@ -50,15 +50,27 @@ class OrderController extends Controller
         return view('orders.historic', $data, compact('selectUser'));
     }
     
-    public function show(Request $request, $id)
+    public function showItems(Request $request, $id)
     {
         
         $selectUser = $this->users::findOrFail($id);
-        $selectOrder = $this->orders::where('user_id', $id)->get();
-        $orderItems = $this->orderItems::where('order_id', $id)->get();
-        $products = $this->products::all();
 
+        $selectOrder = $this->orders::findOrFail($id);
+        $iduser = Auth::user()->id;
+        $idorder = $selectOrder->id;
+        $listOrderItems = $this->orderItems::where('order_id', $id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
+        ->where('order_id', $idorder)
+        ->get([ 'order_items.*', 'order_items.quantity as quantityItem']);
         
-        return view('orders.show', compact('selectOrder', 'orderItems', 'products', 'selectUser'));
+        // dd($listItems);
+        
+        $data = [];
+        $data['listItems'] = $listItems;
+        
+        return view('orders.show', $data, compact('selectOrder', 'selectUser'));
     }
 }
