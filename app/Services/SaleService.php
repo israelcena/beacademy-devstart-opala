@@ -49,6 +49,15 @@ class SaleService {
                 $orderItem->image_products = $product['photo'];
                 $orderItem->save();
             }
+
+            $products = Product::whereIn('id', array_column($cart, 'id'))->get();
+            $products->each(function($product) use ($cart) {
+                $product->update([
+                    'quantity' => $product->quantity - $cart[$product->id]['quantity'],
+                ]);
+            });
+        
+            
             
             DB::commit();
     

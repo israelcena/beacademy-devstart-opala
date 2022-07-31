@@ -31,35 +31,36 @@
                         @foreach($listItems as $orderItem)
                             <div class="col-md-12">
                                 <div class="row">
+                                    @php
+                                        $inputName = 'name' . $orderItem->product->id;
+                                        $inputPrice = 'price' . $orderItem->id;
+                                        $inputQuantity = 'quantity' . $orderItem->id;
+                                        $inputSubtotal = 'subtotal'.$orderItem->id;
+                                    @endphp
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="name">Nome</label>
-                                            <input type="text" class="form-control" name="name" value="{{ $orderItem->product->name }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputName }}" value="{{ $orderItem->product->name }}" required>
                                         </div>
                                     </div>
-                                    @php
-                                        $inputprice = 'price'.$orderItem->id;
-                                    @endphp
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="price">Preço</label>
-                                            <input type="text" class="form-control" name="{{ $inputprice }}" value="{{ $orderItem->price }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputPrice }}" value="{{ $orderItem->price }}" required>
                                         </div>
                                     </div>
-                                    @php
-                                        $inputname = 'quantity'.$orderItem->id;
-                                    @endphp
-                               
+                                
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="quantity">Quantidade</label>
-                                            <input type="text" class="form-control" name="{{ $inputname  }}" value="{{ $orderItem->quantityItem }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputQuantity  }}" value="{{ $orderItem->quantityItem }}" required>
                                         </div>
                                     </div>
+                                   
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="subtotal">Subtotal</label>
-                                            <input type="text" class="form-control" name="subtotal" value="{{ $orderItem->subtotal }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputSubtotal }}" value="{{ $orderItem->subtotal }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -89,7 +90,7 @@
                                 <select class="form-control" id="payment" name="payment" required>
                                     <option value="{{ $selectOrder->payment }}">{{ $selectOrder->payment }}</option>
                                     <option value="Pix">Pix</option>
-                                    <option value="Débito">Boleto</option>
+                                    <option value="Débito">Débito</option>
                                     <option value="Dinheiro">Dinheiro</option>
                                 </select>
                             </div>

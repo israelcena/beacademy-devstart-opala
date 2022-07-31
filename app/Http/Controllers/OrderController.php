@@ -180,8 +180,21 @@ class OrderController extends Controller
             $orderItem->update([
                 'quantity' => $request->input('quantity'.$orderItem->id),
                 'price' => $request->input('price'.$orderItem->id),
+                'subtotal' => $request->input('subtotal'.$orderItem->id),
             ]);
         });
+        
+        
+    //    $products = $this->products::where('name', $request->input('name'.$product->id))->get();
+    //    dd($products);
+    //      $products->each(function($product) use ($request) {
+    //             $product->update([
+    //              'name' => $request->input('name'.$product->id),
+    //             ]);
+                
+    //       });
+    
+        
         return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
     }
 
@@ -202,10 +215,8 @@ class OrderController extends Controller
         $products = session()->get('cart');
         $saleService = new SaleService();
         $result = $saleService->finalizeSale($products, Auth::user());
-        $payment = $request->input('payment');
-        // dd($payment);
-        // dd($result);
-
+    
+       
         if ($result['status'] == 'success') {
             session()->forget('cart');
             return redirect()->route('cart.index')->with('success', $result['message']);
@@ -216,21 +227,3 @@ class OrderController extends Controller
         return redirect()->route('cart.index')->with('success', 'Compra realizada com sucesso!');
     }
 }
-        // $selectOrder = $this->orders::findOrFail($id);
-        // $iduser = Auth::user()->id;
-        // $idorder = $selectOrder->id;
-        // $listOrderItems = $this->orderItems::where('order_id', $id)
-        // ->orderBy('created_at', 'desc')
-        // ->get();
-
-        // $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
-        // ->where('order_id', $idorder)
-        // ->get([ 'order_items.*', 'order_items.quantity as quantityItem']);
-        
-        // $data = [];
-        // $data['listItems'] = $listItems;
-        
-        // return view('orders.checkout', $data, compact('selectOrder'));
-    // }
-
-// }

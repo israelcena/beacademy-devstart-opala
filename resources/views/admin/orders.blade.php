@@ -2,14 +2,7 @@
     <div>
         @include('layouts.navbar')
     </div>
-    <div class="container">
-        @if(Session::has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ Session::get('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-    </div>
+   
     <div class="row">
 
         <div class="col-md-2 shadow-lg bg-light min-h-100">
@@ -17,6 +10,14 @@
         </div>
         <div class="col-md-10 mt-5">
             <div class="container">
+                <div class="container">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ Session::get('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
                 <div class="row">
                     <h1 class="mb-3">Lista dos pedidos</h1>
                 </div>
