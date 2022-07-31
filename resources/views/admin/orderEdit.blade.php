@@ -37,32 +37,37 @@
                                             <input type="text" class="form-control" name="name" value="{{ $orderItem->product->name }}" required>
                                         </div>
                                     </div>
+                                    @php
+                                        $inputprice = 'price'.$orderItem->id;
+                                    @endphp
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="price">Preço</label>
-                                            <input type="text" class="form-control" name="price" value="{{ $orderItem->price }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputprice }}" value="{{ $orderItem->price }}" required>
                                         </div>
                                     </div>
-                                
+                                    @php
+                                        $inputname = 'quantity'.$orderItem->id;
+                                    @endphp
                                
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="quantity">Quantidade</label>
-                                            <input type="text" class="form-control" name="quantity" value="{{ $orderItem->quantityItem }}" required>
+                                            <input type="text" class="form-control" name="{{ $inputname  }}" value="{{ $orderItem->quantityItem }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="total">Subtotal</label>
-                                            <input type="text" class="form-control" name="total" value="{{ $orderItem->subtotal }}" required>
+                                            <label for="subtotal">Subtotal</label>
+                                            <input type="text" class="form-control" name="subtotal" value="{{ $orderItem->subtotal }}" required>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="total">Total</label>
-                                            <input type="text" class="form-control" name="total" value="{{ $selectOrder->total }}" required>
+                                            <input type="text" class="form-control" name="total" id="total" value="@money($selectOrder->total)" required>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>                           
                             </div>
                         @endforeach
@@ -71,22 +76,21 @@
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <select class="form-control" name="status" required>
-                                    <option value="">{{ $selectOrder->status }}</option>
-                                    <option value="Pendente">Pendente</option>
-                                    <option value="Aguardando pagamento">Aguardando pagamento</option>
-                                    <option value="Pago">Pago</option>
-                                    <option value="Cancelado">Cancelado</option>
+                                    <option value="{{ $selectOrder->status }}">{{ $selectOrder->status }}</option>
+                                    <option value="Processando">Processando</option>
+                                    <option value="Aprovado">Aprovado</option>
+                                    <option value="Reprovado">Reprovado</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="payment_method">Método de pagamento</label>
-                                <select class="form-control" name="payment_method" required>
-                                    <option value="">Selecione</option>
-                                    <option value="Boleto">Boleto</option>
-                                    <option value="Cartão de crédito">Cartão de crédito</option>
-                                    <option value="Cartão de débito">Cartão de débito</option>
+                                <label for="payment">Método de pagamento</label>
+                                <select class="form-control" id="payment" name="payment" required>
+                                    <option value="{{ $selectOrder->payment }}">{{ $selectOrder->payment }}</option>
+                                    <option value="Pix">Pix</option>
+                                    <option value="Débito">Boleto</option>
+                                    <option value="Dinheiro">Dinheiro</option>
                                 </select>
                             </div>
                         </div>

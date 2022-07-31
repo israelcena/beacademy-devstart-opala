@@ -146,15 +146,13 @@ class OrderController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
 
         $selectOrder = $this->orders::findOrFail($id);
-        // dd($selectOrder);
         $idorder = $selectOrder->id;
         $listOrderItems = $this->orderItems::where('order_id', $id)
         ->orderBy('created_at', 'desc')
         ->get();
-        // dd($idorder);
 
         $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
         ->where('order_id', $idorder)
@@ -169,22 +167,25 @@ class OrderController extends Controller
 
     public function update(Request $request, $id)
     {
-        $selectOrder = $this->orders::findOrFail($id);
-        $iduser = Auth::user()->id;
-        $idorder = $selectOrder->id;
-        $listOrderItems = $this->orderItems::where('order_id', $id)
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $selectUser = Auth::user();
+        $order = $this->orders::findOrFail($id);
+        $selectOrder = $this->orders::findOrFail($id)->update([
+            'status' => $request->input('status'),
+            'payment' => $request->input('payment'),
+            'total' => $request->input('total'),
+        ]);
 
-        $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
-        ->where('order_id', $idorder)
-        ->get([ 'order_items.*', 'order_items.quantity as quantityItem']);
-        
-        $data = [];
-        $data['listItems'] = $listItems;
-        
-        return view('orders.edit', $data, compact('selectOrder'));
+         $orderItems = $this->orderItems::where('order_id', $id)->get();
+         $orderItems->each(function($orderItem) use ($request) {
+            $orderItem->update([
+                'quantity' => $request->input('quantity'.$orderItem->id),
+                'price' => $request->input('price'.$orderItem->id),
+            ]);
+        });
+        return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
     }
+
+
 
     public function checkout(Request $request)
     {
