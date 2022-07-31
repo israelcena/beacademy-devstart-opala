@@ -34,6 +34,7 @@ class SaleService {
             $order->user_id = $user->id;
             $order->status = 'Processando';
             $order->total = $this->total($products);
+            $order->payment = $_REQUEST['payment'];
             $order->save();
 
             $cart = Session::get('cart');

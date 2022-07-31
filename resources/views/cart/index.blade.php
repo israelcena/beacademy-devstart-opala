@@ -87,12 +87,15 @@
             </div>
             <div class="container">
                 <div class="row ">
+                    @if (@!empty($cart))
                     <div class="col-md-6 d-flex">
                         <a href="{{ route('home.index') }}" class="btn btn-success me-2">Continuar comprando</a>
                   
-                        <a href="{{ route('cart.finalize', $user) }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
-                        <form id="form-checkout" action="{{ route('cart.finalize') }}"></form>
+                        <a href="{{ route('order.checkout', $user) }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
+                        <form id="form-checkout" action="{{ route('order.checkout') }}"></form>
                     </div>
+                    @endif
+                    
                 </div>
     
         </div>

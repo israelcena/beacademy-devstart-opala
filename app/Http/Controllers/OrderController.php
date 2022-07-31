@@ -10,8 +10,7 @@ use App\Models\{
     OrderItem,
     Product
 };
-
-
+use App\Services\SaleService;
 
 class OrderController extends Controller
 {
@@ -194,6 +193,25 @@ class OrderController extends Controller
         $cart = session()->get('cart');
         
         return view('checkout.index', compact('cart', 'user'));
+    }
+
+    public function checkoutStore(Request $request)
+    {
+        $products = session()->get('cart');
+        $saleService = new SaleService();
+        $result = $saleService->finalizeSale($products, Auth::user());
+        $payment = $request->input('payment');
+        // dd($payment);
+        // dd($result);
+
+        if ($result['status'] == 'success') {
+            session()->forget('cart');
+            return redirect()->route('cart.index')->with('success', $result['message']);
+        } else {
+            return redirect()->route('cart.index')->with('error', $result['message']);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Compra realizada com sucesso!');
     }
 }
         // $selectOrder = $this->orders::findOrFail($id);
