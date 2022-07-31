@@ -52,7 +52,7 @@ class SaleService {
             
             DB::commit();
     
-            return ['status' => 'success', 'message' => 'Pedido finalizado com sucesso!'];
+            return ['status' => 'success', 'message' => 'Pedido finalizado com sucesso! Agora é só aguardar!'];
         }
         
         

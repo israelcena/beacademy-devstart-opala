@@ -52,7 +52,8 @@ class OrderController extends Controller
     public function showItems(Request $request, $id)
     {
         
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
+        // dd($selectUser->getAuthIdentifier());
 
         $selectOrder = $this->orders::findOrFail($id);
         $iduser = Auth::user()->id;
@@ -89,7 +90,7 @@ class OrderController extends Controller
     public function showOrder(Request $request, $id)
     {
         
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
 
         $selectOrder = $this->orders::findOrFail($id);
         $iduser = Auth::user()->id;

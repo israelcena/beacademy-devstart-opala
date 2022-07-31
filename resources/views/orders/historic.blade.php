@@ -30,7 +30,7 @@
                                     <th>Número</th>
                                     <th>Data</th>
                                     <th>Status</th>
-                                    {{-- <th>Valor</th> --}}
+                                    <th class="text-center">Valor</th>
                                     <th class="text-center">Ações</th>
                                 </tr>
                             </thead>
@@ -40,7 +40,7 @@
                                         <td>{{ $order->id }}</td>
                                         <td>{{ date('d/m/Y H:i', strtotime($order->created_at)) }}</td>
                                         <td>{{ $order->status }}</td>
-                                        {{-- <td>{{ $order->total }}</td> --}}
+                                        <td class="text-center">@money($order->total)</td>
                                         <td class="text-center">
                                             <a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary">
                                                 <i class="bi bi-eye"></i>

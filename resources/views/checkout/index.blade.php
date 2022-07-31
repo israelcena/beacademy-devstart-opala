@@ -129,7 +129,7 @@
                             @csrf
                             <div class="form-group mb-3 col-md-12">
                                 <label for="payment">Método de pagamento</label>
-                                <select class="form-control" id="payment" name="payment">
+                                <select class="form-control" id="payment" name="payment" required>
                                     <option value="">Selecione</option>
                                     <option value="Pix">Pix</option>
                                     <option value="Débito">Boleto</option>
