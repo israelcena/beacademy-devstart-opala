@@ -40,6 +40,7 @@
             <div class="col-md-6">
                 
                             <h3 class="text-center fs-4 text-secondary">Dados do Cliente</h3>
+                            <p class="small"><span class="text-danger">* </span>Se desejar alterar seus dados, clique no botão abaixo</p>
                             
                             <form action="#{{-- route('checkout.store') --}}" method="POST">
                                 @csrf
@@ -81,6 +82,11 @@
                                     <input type="text" class="form-control" id="country" name="country" value="{{ $user->country }}" disabled>
                                 </div>
                             </form>
+                            <div class="row">
+                                <div class="col-4">
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar meus dados</a>
+                                </div>
+                            </div>
                 </div>      
             </div>
 
@@ -136,7 +142,7 @@
                                     <option value="Dinheiro">Dinheiro</option>
                                 </select>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-5">
                                 <a href="{{ route('cart.index') }}" class="btn btn-primary btn-block">Voltar ao carrinho</a>
                                 <button type="submit" class="btn btn-danger btn-block">Comprar</button>
                             </div>
