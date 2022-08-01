@@ -28,19 +28,19 @@ button {
     cursor: pointer;
 }
 header {
+    width: 100%;
     background-color: var(--header-color);
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
     display: block;
 }
 footer {
+    width: 100%;
     background-color: var(--footer-color);
-    padding: 10px;
-    position: absolute;
+    padding: 20px;
+    position: relative;
     left: 0;
     bottom: 0;
-    width: 100%;
     color: var(--background-color);
 }
