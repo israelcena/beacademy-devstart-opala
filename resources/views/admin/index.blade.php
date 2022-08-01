@@ -1,6 +1,6 @@
 <x-app-layout>
     <div>
-        @include('layouts.header')
+        @include('layouts.navbar')
     </div>
     <div class="row">
         <div class="col-md-2 -lg bg-light h-100 min-vh-100 rounded">
