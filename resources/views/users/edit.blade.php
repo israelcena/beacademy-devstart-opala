@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-2 shadow-lg bg-light min-vh-100">
+        <div class="col-md-2 -lg bg-light min-vh-100">
             @include('components.sidebar-client')
         </div>
         

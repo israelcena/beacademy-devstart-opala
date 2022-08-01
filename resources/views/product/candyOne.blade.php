@@ -18,7 +18,7 @@
 
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-4 bg-light p-5 shadow text-center">
+            <div class="col-md-4 bg-light p-5  text-center">
                 <h3 class="display-6">{{ $product->name }}</h3>
                 <p class="lead">{{ $product->description }}</p>
                 <figure>

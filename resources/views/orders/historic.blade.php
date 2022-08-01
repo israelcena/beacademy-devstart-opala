@@ -5,7 +5,7 @@
     
     <div class="row">
       
-        <div class="col-md-2 shadow min-vh-100">
+        <div class="col-md-2  min-vh-100">
           @include('components.sidebar-client')
         </div>
       

@@ -1,20 +1,15 @@
-<header class="p-1 mb-0 shadow bg-light">
-  <div class="container">
+<div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-start justify-content-lg-start">
       <div class="">
         <a href="/" class="align-items-center mb-lg-0 text-dark text-decoration-none">
           <img src="{{ asset('storage/logo/logo.png') }}" alt="Logo da loja E Ai Docinho" class="img-fluid" style="width: 20%">
         </a>
       </div>
-      <ul class="nav col-12 px-2 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0">
-        <li><a href="{{ route('products.show') }}" class="nav-link px-2 link-dark">Produtos</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Contato</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Sobre</a></li>
-      </ul>
-
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
+      <div class="col-12 px-2 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+      </div>
 
         <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end align-items-center">
           <ul class="nav me-1">
@@ -59,5 +54,4 @@
 
     </div>
 
-  </div>
-</header>
+</div>

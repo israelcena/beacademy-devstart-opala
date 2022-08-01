@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div>
-        @include('layouts.navbar')
+        @include('layouts.header')
     </div>
     <div class="container">
         @if(Session::has('success'))
@@ -9,5 +9,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+    </div>
+    <div>
+        @include('layouts.footer')
     </div>
 </x-guest-layout>
