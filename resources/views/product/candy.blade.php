@@ -1,6 +1,6 @@
 <x-app-layout>
     <div>
-        @include('layouts.navbar')
+        @include('layouts.header')
     </div>
 
     <div class="container">
@@ -20,11 +20,11 @@
                 <div class="row">
                     @foreach($products as $product)
                         <div class="col-md-3 mb-3">
-                            <div class="card shadow-lg position-relative d-flex border-none" style="height: 24rem;">
+                            <div class="card -lg position-relative d-flex border-none" style="height: 38rem;">
                                 <img src="{{ asset('storage/' . $product->image_products) }}" class="card-img-top img-fluid mx-auto mt-1" alt="{{ $product->name }}" style="max-width: 120px">
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{ $product->name }}</h5>
-                                    <p class="card-text">{{ $product->description }}</p>
+                                    <h5 class="card-title" style="font-size: 1.8rem;">{{ $product->name }}</h5>
+                                    <p class="card-text mt-auto">{{ $product->description }}</p>
                                     <p class="text-muted mt-auto">Valor: R$ {{ $product->salesPrice }}</p>
                                 </div>
                                     <div class="card-footer bg-transparent mb-2">

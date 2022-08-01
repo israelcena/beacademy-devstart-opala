@@ -1,0 +1,53 @@
+@import url("reset.css");
+
+/* 'font-size' com unidade 'rem' - relativa */
+/* 'border' com unidade 'px' - absoluta/fixa */
+
+.row {
+    margin-top: 1.6rem;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 30px;
+    border-width: 2px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: 6px 10px 6px 10px;
+}
+.btn-brown-open {
+    border-style: solid;
+    border-color: var(--highlight-color);
+    color: var(--highlight-color);
+}
+.btn-brown-open:hover {
+    border-style: solid;
+    border-color: var(--highlight-color);
+    color: rgb(255, 255, 255);
+    background-color: var(--highlight-color);
+    transition: 0.35s;
+}
+
+.btn-simple {
+    color: var(--highlight-color);
+}
+.btn-simple:hover {
+    color: var(--highlight-color);
+    transform: scale(1.04);
+    transition-duration: 0.15s;
+}
+
+/* .btn-brown-closed {
+    border-style: solid;
+    border-color: var(--highlight-color);
+    background-color: var(--highlight-color);
+    color: rgb(255, 255, 255);
+}
+.btn-brown-closed:hover {
+    border-style: solid;
+    border-color: var(--highlight-color);
+    color: rgb(255, 255, 255);
+    transition: 0.35s;
+    transform: scale(1.04);
+    transition-duration: 0.35s;
+} */

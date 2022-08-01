@@ -1,9 +1,9 @@
 <x-app-layout>
     <div>
-        @include('layouts.navbar')
+        @include('layouts.header')
     </div>
     <div class="row">
-        <div class="col-md-2 shadow-lg bg-light h-100 min-vh-100 rounded">
+        <div class="col-md-2 -lg bg-light h-100 min-vh-100 rounded">
             @include('layouts.sidebar')
         </div>
         <div class="col-md-10 d-flex align-items-center justify-content-center flex-column">
