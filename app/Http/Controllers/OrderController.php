@@ -10,8 +10,7 @@ use App\Models\{
     OrderItem,
     Product
 };
-
-
+use App\Services\SaleService;
 
 class OrderController extends Controller
 {
@@ -53,7 +52,8 @@ class OrderController extends Controller
     public function showItems(Request $request, $id)
     {
         
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
+        // dd($selectUser->getAuthIdentifier());
 
         $selectOrder = $this->orders::findOrFail($id);
         $iduser = Auth::user()->id;
@@ -90,7 +90,7 @@ class OrderController extends Controller
     public function showOrder(Request $request, $id)
     {
         
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
 
         $selectOrder = $this->orders::findOrFail($id);
         $iduser = Auth::user()->id;
@@ -123,7 +123,7 @@ class OrderController extends Controller
         $iduser = Auth::user()->id;
         $order = $this->orders::create([
             'user_id' => $iduser,
-            'status' => 'Pendente',
+            'status' => 'Processando',
             'total' => 0,
         ]);
         $order->save();
@@ -146,15 +146,13 @@ class OrderController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $selectUser = $this->users::findOrFail($id);
+        $selectUser = Auth::user();
 
         $selectOrder = $this->orders::findOrFail($id);
-        // dd($selectOrder);
         $idorder = $selectOrder->id;
         $listOrderItems = $this->orderItems::where('order_id', $id)
         ->orderBy('created_at', 'desc')
         ->get();
-        // dd($idorder);
 
         $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
         ->where('order_id', $idorder)
@@ -169,21 +167,63 @@ class OrderController extends Controller
 
     public function update(Request $request, $id)
     {
-        $selectOrder = $this->orders::findOrFail($id);
-        $iduser = Auth::user()->id;
-        $idorder = $selectOrder->id;
-        $listOrderItems = $this->orderItems::where('order_id', $id)
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $selectUser = Auth::user();
+        $order = $this->orders::findOrFail($id);
+        $selectOrder = $this->orders::findOrFail($id)->update([
+            'status' => $request->input('status'),
+            'payment' => $request->input('payment'),
+            'total' => $request->input('total'),
+        ]);
 
-        $listItems = OrderItem::join('products', 'products.id', '=', 'order_items.product_id')
-        ->where('order_id', $idorder)
-        ->get([ 'order_items.*', 'order_items.quantity as quantityItem']);
+         $orderItems = $this->orderItems::where('order_id', $id)->get();
+         $orderItems->each(function($orderItem) use ($request) {
+            $orderItem->update([
+                'quantity' => $request->input('quantity'.$orderItem->id),
+                'price' => $request->input('price'.$orderItem->id),
+                'subtotal' => $request->input('subtotal'.$orderItem->id),
+            ]);
+        });
         
-        $data = [];
-        $data['listItems'] = $listItems;
         
-        return view('orders.edit', $data, compact('selectOrder'));
+    //    $products = $this->products::where('name', $request->input('name'.$product->id))->get();
+    //    dd($products);
+    //      $products->each(function($product) use ($request) {
+    //             $product->update([
+    //              'name' => $request->input('name'.$product->id),
+    //             ]);
+                
+    //       });
+    
+        
+        return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
     }
 
+
+
+    public function checkout(Request $request)
+    {
+        $user = Auth::user();
+        // dd($user);
+        
+        $cart = session()->get('cart');
+        
+        return view('checkout.index', compact('cart', 'user'));
+    }
+
+    public function checkoutStore(Request $request)
+    {
+        $products = session()->get('cart');
+        $saleService = new SaleService();
+        $result = $saleService->finalizeSale($products, Auth::user());
+    
+       
+        if ($result['status'] == 'success') {
+            session()->forget('cart');
+            return redirect()->route('cart.index')->with('success', $result['message']);
+        } else {
+            return redirect()->route('cart.index')->with('error', $result['message']);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Compra realizada com sucesso!');
+    }
 }

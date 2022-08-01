@@ -22,6 +22,8 @@ class CartController extends Controller
     public function index(Request $request)
     {
         
+        $user = Auth::user();
+        // dd($user->id);
         
         $cart = session()->get('cart');
         // $total = $this->total($cart);
@@ -33,7 +35,7 @@ class CartController extends Controller
         // }
         
         
-        return view('cart.index', compact('cart'));
+        return view('cart.index', compact('cart', 'user'));
     }
 
     public function add($id = 0, Request $request)
@@ -52,6 +54,7 @@ class CartController extends Controller
                 'price' => $product->salesPrice,
                 'name' => $product->name,
                 'photo' => $product->image_products,
+                
             ];
         }
         session()->put('cart', $cart);
@@ -103,6 +106,7 @@ class CartController extends Controller
         $products = session()->get('cart');
         $saleService = new SaleService();
         $result = $saleService->finalizeSale($products, Auth::user());
+        // dd($result);
 
         if ($result['status'] == 'success') {
             session()->forget('cart');

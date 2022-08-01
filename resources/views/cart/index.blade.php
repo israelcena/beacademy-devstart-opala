@@ -16,7 +16,7 @@
     <div class="container mt-5">
         <div class="row d-flex">
             <h1 class="text-center">Meu carrinho</h1>
-            <div class="col-md-6 mt-3">
+            <div class="col-md-6 offset-md-3 mt-3">
                 <div class="container">
                     @if(Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -87,12 +87,18 @@
             </div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-md-6 d-flex">
-                        <a href="{{ route('home.index') }}" class="btn btn-success me-2">Continuar comprando</a>
-                  
-                        <a href="{{ route('cart.finalize') }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
-                        <form id="form-checkout" action="{{ route('cart.finalize') }}"></form>
+                    <div class="col-md-6 offset-md-3">
+
+                        @if (@!empty($cart))
+                        <div class="col-md-12 d-flex">
+                            <a href="{{ route('products.show') }}" class="btn btn-success me-2">Continuar comprando</a>
+                            
+                            <a href="{{ route('order.checkout', $user) }}" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('form-checkout').submit();">Finalizar compra</a>
+                            <form id="form-checkout" action="{{ route('order.checkout') }}"></form>
+                        </div>
+                        @endif
                     </div>
+                    
                 </div>
     
         </div>

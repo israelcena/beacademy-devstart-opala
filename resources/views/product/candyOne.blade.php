@@ -22,7 +22,7 @@
                 <h3 class="display-6">{{ $product->name }}</h3>
                 <p class="lead">{{ $product->description }}</p>
                 <figure>
-                    <img class="mx-auto img-fluid rounded" src="{{ asset('storage/' . $product->image_products) }}" class="img-fluid" alt="{{ $product->name }}">
+                    <img class="mx-auto img-fluid rounded" src="{{ asset('storage/' . $product->image_products) }}" alt="{{ $product->name }}" style="max-width: 200px">
                 </figure>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">

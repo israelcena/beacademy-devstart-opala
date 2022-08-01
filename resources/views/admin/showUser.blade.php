@@ -47,7 +47,7 @@
                             <strong>Cidade:</strong> {{$user->city}}
                         </p>
                         <p>
-                            <strong>Estado:</strong> {{$user->state}}
+                            <strong>Estado:</strong> {{$user->district}}
                         </p>
                         <p>
                             <strong>País:</strong> {{$user->country}}

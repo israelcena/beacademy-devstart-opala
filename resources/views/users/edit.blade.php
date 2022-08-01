@@ -37,8 +37,8 @@
                       <input type="email" class="form-control" name="email" id="email" value="{{$selectUser->email}}" disabled>
                     </div>
                     <div class="col-md-6">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Senha de mínimo 8 dígitos" value="">
+                        <label for="password" class="form-label">Senha (se desejar)</label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Senha de mínimo 8 dígitos" value="{{ $selectUser->password }}">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-md-6">
                       <label for="password_confirmation" class="form-label">Confirmar Senha</label>
-                      <input type="password" class="form-control @error ('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" placeholder="Repita a senha">
+                      <input type="password" class="form-control @error ('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" placeholder="Repita a senha" value="{{ $selectUser->password }}">
                       @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-md-4">
                       <label for="cpf" class="form-label">CPF</label>
-                      <input type="text" class="form-control id="cpf" name="cpf" value="{{$selectUser->cpf}}" disabled>
+                      <input type="text" class="form-control" id="cpf" name="cpf" value="{{$selectUser->cpf}}" disabled>
                     </div>
                     <div class="col-md-4">
                       <label for="birth_date" class="form-label">Data de Nascimento</label>
