@@ -1,5 +1,5 @@
 ![header](https://pedrasecristais.com/wp-content/uploads/2018/06/PEDRA-OPALA-2-900x500.jpg)
-# <img src="https://img.icons8.com/color/2x/opal.png" width="30">Squad Opala 
+# Squad Opala
 [![PHP 8][Php.com]][Php-url]
 [![Mysql][Mysql.com]][Mysql-url]
 [![NodeJS][Nodejs.com]][Nodejs-url]
@@ -45,6 +45,8 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 ```bash
   git pull origin main
   
+  php artisan storage:link
+  
   php artisan optimize
   
   php artisan migrate
@@ -61,7 +63,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 - Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
 - Criação de testes unitários para todas as regras de negócio
 
-## <img src="https://img.icons8.com/color/2x/handshake.png" width="30"> Squad Members
+## Squad Members
 
 <table>
   <tr>
