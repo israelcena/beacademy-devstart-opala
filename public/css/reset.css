@@ -29,10 +29,11 @@ button {
 }
 header {
     background-color: var(--header-color);
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    display: block;
 }
 footer {
     background-color: var(--footer-color);
