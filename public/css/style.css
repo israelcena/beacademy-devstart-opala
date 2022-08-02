@@ -166,26 +166,6 @@
 
 
 /* Estilos adicionais feitos por Daniel Attias: */
-.show-produtos {
-  padding-bottom: 30px;
-}
-
-.input-group {
-}
-.form-control {
-  border-right: none;
-  border-radius: 20px;
-  border-color: var(--highlight-color);
-  height: 2.4rem;
-  outline: none;
-}
-#basic-addon1 {
-  border-left: none;
-  border-radius: 0 20px 20px 0;
-  border-color: var(--highlight-color);
-  height: 2.4rem;
-}
-
 .section-hero {
   background-color: var(--contrast-color);
   height: 400px;

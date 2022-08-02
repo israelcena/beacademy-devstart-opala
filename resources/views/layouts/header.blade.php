@@ -1,3 +1,7 @@
-<header class="p-1 mb-0">
-    @include('layouts.navbar')
+<header class="container-fluid px-5">
+    <div class="row">
+
+        @include('layouts.navbar')
+
+    </div>
 </header>

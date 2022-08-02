@@ -1,10 +1,8 @@
 <x-guest-layout>
-    <div>
-        @include('layouts.header')
-    </div>
-    <div class="section-hero">
-        <h1 class="text-center" style="line-height:center">Escolha os doces que desejar!</h1>
-    </div>
+
+    @include('layouts.header')
+    {{-- @include('layouts.section_hero') --}}
+
     <div class="container">
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,11 +12,7 @@
         @endif
     </div>
 
-    <div class="container mt-5 show-produtos">
-        @include('layouts.products')
-    </div>
+    @include('layouts.products')
+    @include('layouts.footer')
 
-    <div>
-        @include('layouts.footer')
-    </div>
 </x-guest-layout>
