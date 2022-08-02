@@ -65,3 +65,29 @@ i.bi-cart {
     color: var(--highlight-color);
     font-size: 2.8rem;
 }
+
+/* inputs */
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.input-group {
+    background-color: white;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    border-width: 2px;
+    border-color: var(--highlight-color);
+    border-radius: 40px;
+}
+.input-group .busca {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    outline: none;
+}
+.input-group #basic-addon1 {
+    background: none;
+    border: none;
+    padding: none;
+    color: var(--highlight-color);
+}

@@ -28,19 +28,26 @@ button {
     cursor: pointer;
 }
 header {
-    width: 100%;
-    background-color: var(--header-color);
-    position: absolute;
-    left: 0;
+    background-color: var(--contrast-color);
     top: 0;
     display: block;
+    line-break: normal;
+    position: static;
 }
-footer {
-    width: 100%;
+footer.home {
     background-color: var(--footer-color);
-    padding: 20px;
-    position: relative;
-    left: 0;
     bottom: 0;
     color: var(--background-color);
+    display: block;
+    line-break: normal;
+    position: absolute;
+}
+footer.admin {
+    background-color: var(--footer-color);
+    bottom: 0;
+    color: var(--background-color);
+    display: block;
+}
+main {
+    position: absolute;
 }
