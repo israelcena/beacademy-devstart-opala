@@ -40,11 +40,11 @@
                 <span>Quantidade</span><span>{{$product->quantity}}</span>
               </div>
             </div>
-            <form action="{{ route('admin.destroy', $product->id)}}" method="POST">
+            <form action="{{ route('admin.destroy', $product->id)}}" method="POST" class="mt-5">
               @method('DELETE')
               @csrf
-              <button type='submit' class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
-                style="width:100%">Deletar</button>
+              <button type='submit' class="btn btn-secondary btn-lg btn-sm mt-5" role="button" aria-pressed="true"
+                style="width:100%;">Deletar</button>
             </form><br>
             <a class="btn btn-secondary btn-lg btn-sm active" role="button" aria-pressed="true"
               href="{{route('admin.product.edit', $product->id)}}">Editar</a><br />
