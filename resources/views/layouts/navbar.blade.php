@@ -28,11 +28,7 @@
         </div>
   
           <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end align-items-center">
-            <li class="nav-link text-decoration-none">
-              <a href="{{ route('cart.index') }}" class="">
-                <span><i class="bi bi-cart me-5"></i></span>
-              </a>
-            </li>
+            
             <ul class="nav me-1">
               @if (Auth::check())
                 @if (Auth::user()->is_admin == 1)
@@ -58,14 +54,14 @@
               @else
               
               <ul class="nav">
-                {{-- <li class="nav-link text-decoration-none">
-                  <a href="{{ route('cart.index') }}" class="">
-                    <span><i class="bi bi-cart"></i></span>
-                  </a>
-                </li> --}}
                 <li class="nav-link text-dark text-decoration-none"><a class="btn btn-simple" href="{{ route('login') }}" class="dropdown-item me-2">Entrar</a></li>
                 <li class="nav-link text-dark text-decoration-none"><a class="btn btn-brown-open" href="{{ route('register') }}" class="dropdown-item">Cadastrar</a></li>
               </ul>
+              <li class="nav-link text-decoration-none">
+                <a href="{{ route('cart.index') }}" class="">
+                  <span><i class="bi bi-cart me-5"></i></span>
+                </a>
+              </li>
                 @endif
             </ul>
   

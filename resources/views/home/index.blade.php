@@ -1,7 +1,6 @@
 <x-guest-layout>
 
     @include('layouts.header')
-    {{-- @include('layouts.section_hero') --}}
 
     <div class="container">
         @if(Session::has('success'))

@@ -14,7 +14,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+html body {
     background-color: var(--background-color);
     font-size: 1.6rem;
 }
@@ -40,14 +40,10 @@ footer.home {
     color: var(--background-color);
     display: block;
     line-break: normal;
-    position: absolute;
 }
 footer.admin {
     background-color: var(--footer-color);
     bottom: 0;
     color: var(--background-color);
     display: block;
-}
-main {
-    position: absolute;
 }
