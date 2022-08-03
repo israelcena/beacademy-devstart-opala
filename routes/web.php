@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/finalizar', [CartController::class, 'finalize'])->name('cart.finalize');
 
         Route::match(['get', 'post'], '/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+        Route::match(['get', 'post'], '/checkout/payment', [OrderController::class, 'payment'])->name('order.payment');
         Route::match(['get', 'post'], '/checkoutstore', [OrderController::class, 'checkoutStore'])->name('order.checkoutstore');
 
         Route::get('/pedidos/historico/{id}', [OrderController::class, 'historic'])->name('orders.historic');
