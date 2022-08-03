@@ -78,12 +78,14 @@ textarea:focus, input:focus, select:focus {
     border-width: 2px;
     border-color: var(--highlight-color);
     border-radius: 40px;
+    width: 100%;
 }
 .input-group .busca {
     background: none;
     border: none;
     font-size: 2rem;
     outline: none;
+    width: 85%;
 }
 .input-group #basic-addon1 {
     background: none;
@@ -91,3 +93,5 @@ textarea:focus, input:focus, select:focus {
     padding: none;
     color: var(--highlight-color);
 }
+
+/* Card Login */
