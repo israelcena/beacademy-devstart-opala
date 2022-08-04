@@ -44,7 +44,7 @@
                         <label for="total-payement">Total</label>
                         <input type="text" class="total_payement form-control" id="total-payement" name="total-payement" placeholder="Total">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Pagar</button>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Pagar</button>
 
                     
                 </form>
