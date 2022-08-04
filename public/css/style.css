@@ -43,7 +43,7 @@
   height: 36px;
   border-width: 0 0 2px 0;
   border-color: #782B1A;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 26px;
   font-weight: 400;
   border-radius: 34.5px;
@@ -65,7 +65,7 @@
   position: absolute;
   left: 20px;
   bottom: 18px;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 45px;
   font-weight: 400;
   color: #331A15;

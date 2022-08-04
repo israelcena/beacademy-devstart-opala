@@ -60,6 +60,9 @@ i.bi-cart {
 }
 
 /* inputs */
+.form-label, .form-control, .form-select {
+    font-size: 1.8rem;
+}
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
