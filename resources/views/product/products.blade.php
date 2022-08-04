@@ -1,8 +1,7 @@
 <x-app-layout>
-  <link rel="stylesheet" href="/css/style.css">
-  <div>
-    @include('layouts.navbar')
-  </div>
+
+  @include('layouts.header')
+
   {{-- <div class="container">
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -12,12 +11,12 @@
   @endif
   </div> --}}
   <div class="row">
-    <div class="col-md-2 -lg bg-light min-h-100">
-      @include('layouts.sidebar')
-    </div>
-    <div class="col-md-10 vh-100 text-center mt-5">
+    
+    @include('layouts.sidebar')
+
+    <div class="col-md-10 vh-100 text-center mt-5 bg-contrast">
       <div class="container">
-        <h1 id="font" class="text-center fs-2">Listagem de produtos da loja</h1>
+        <h1 id="font" class="text-center">Estoque da Loja</h1>
         <a href="/admin/produtos/novo" class="btn btn-sm btn-primary btn-lg active d-flex justify-content-start"
           style="width: 105px;" role="
           button" aria-pressed="true">Novo
@@ -67,4 +66,9 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    @include('layouts.footer_admin')
+  </div>
+  
+
 </x-app-layout>

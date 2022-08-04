@@ -1,15 +1,12 @@
 <x-app-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    
+    @include('layouts.header')
     
     <div class="row">
       
-        <div class="col-md-2  min-vh-100">
-          @include('layouts.sidebar')
-        </div>
+        @include('layouts.sidebar')
       
-        <div class="col-md-10 h-auto">
+        <div class="col-md-10 h-auto bg-contrast">
             @if(Session::has('success'))
                     <div class="alert alert-success alert-dismissible fade show text-center container-fluid" role="alert">
                         {{ Session::get('success') }}
