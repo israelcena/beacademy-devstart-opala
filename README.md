@@ -27,17 +27,16 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   
   composer install
 
-  # Renomear arquivo '.env.example' para '.env' e ajustar configurações internas caso ache necessário
+  *Renomear arquivo '.env.example' para '.env' e ajustar configurações.
 
   php artisan key:generate
+
+  php artisan migrate
   
-  php artisan breeze:install
- 
   npm install
   
-  npm run dev
-  
-  php artisan migrate
+  npm run build
+    
 ```
 
 ### :arrows_counterclockwise: Update with the latest version:
@@ -60,7 +59,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 - [x] Cadastro de Produtos
 - [x] Cadastro de Pedidos
 - [x] Checkout
-- [ ] Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
+<!-- - [ ] Api da **Paylivre** para efetivação dos pagamentos (anexar documentação) -->
 - [ ] Criação de testes unitários para todas as regras de negócio
 
 ## Squad Members
