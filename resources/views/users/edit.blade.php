@@ -2,7 +2,6 @@
     
   @include('layouts.header')
   
-
     <div class="container">
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -13,7 +12,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-2 -lg bg-light min-vh-100  menu-sidebar-admin">
+        <div class="col-md-2 -lg min-vh-100  menu-sidebar-admin">
             @include('components.sidebar-client')
         </div>
         

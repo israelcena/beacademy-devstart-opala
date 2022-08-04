@@ -1,13 +1,13 @@
 <div class="container-fluid">
     <div class="row align-middle">
-        <h2 class="fs-5 text-center mt-3">Minha conta</h2>
+        <h2 class=" text-center mt-3">Minha conta</h2>
     </div>
     <hr>
     <div class="row d-flex">
         <div class="navbar">  
             <div class="container justify-content-center">
                 <ul class="navbar-nav w-100 text-center">
-                    <li class="nav-item fs-5 border-bottom">
+                    <li class="nav-item  border-bottom">
                         <a class="nav-link" href="{{ route('users.showDetails', $selectUser->id) }}">
                             <span>
                                 <i class="bi bi-bag-check-fill"></i>
@@ -15,7 +15,7 @@
                             Meu Perfil
                         </a>
                     </li>
-                    <li class="nav-item fs-5 border-bottom">
+                    <li class="nav-item  border-bottom">
                         <a class="nav-link" href="{{ route('orders.historic', $selectUser->id) }}">
                             <span>
                                 <i class="bi bi-people-fill"></i>

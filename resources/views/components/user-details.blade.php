@@ -1,12 +1,12 @@
 <div class="container mt-5">
 
     <div class="row align-middle">
-        <h2 class="fs-4 text-center mt-3">Meus dados</h2>
+        <h2 class="text-center mt-3">Meus dados</h2>
         <hr>
     </div>
 
     <div class="row d-flex">
-        <div class="col-md-6 text-start fs-6">
+        <div class="col-md-6 text-start">
             <p>
                 <strong>Nome:</strong> {{$selectUser->name}}
             </p>
@@ -42,7 +42,7 @@
             </p>
         </div>
 
-        <div class="col-md-6 fs-6">
+        <div class="col-md-6 ">
             <p>
                 <strong>Data de cadastro:</strong> {{$selectUser->created_at}}
             </p>
