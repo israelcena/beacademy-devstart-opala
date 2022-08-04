@@ -1,7 +1,5 @@
 <x-app-layout>
-    <div>
-        @include('layouts.header')
-    </div>
+    @include('layouts.header')
 
     <div class="container">
         @if(Session::has('success'))

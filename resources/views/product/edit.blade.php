@@ -1,5 +1,4 @@
 <x-app-layout>
-  <link rel="stylesheet" href="/css/style.css">
   <script>
   setTimeout(() => {
     const box = document.getElementById('box-message');
@@ -12,9 +11,7 @@
   }, 1000);
   </script>
 
-  <div>
-    @include('layouts.navbar')
-  </div>
+  @include('layouts.header')
 
   <div class="row">
 
