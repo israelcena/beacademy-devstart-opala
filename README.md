@@ -1,5 +1,8 @@
 
 # E-commerce Doceria - Squad Opala
+
+![printscreen_home](printscreen_home.jpeg)
+
 [![PHP 8][Php.com]][Php-url]
 [![Mysql][Mysql.com]][Mysql-url]
 [![NodeJS][Nodejs.com]][Nodejs-url]
