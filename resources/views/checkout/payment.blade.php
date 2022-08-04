@@ -188,7 +188,7 @@
                         <input type="text" class="totalapagar form-control" id="totalapagar" name="totalapagar"
                             placeholder="" readonly>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block mt-3 pagar">Comprar</>
+                    <input type="submit" class="btn btn-primary btn-block mt-3 pagar" value="Comprar">
                 </div>
 
                 <div class="col-md-5 mx-auto">
