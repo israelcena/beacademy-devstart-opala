@@ -20,14 +20,32 @@
                     } 
                     
                     var hash = response.senderHash;
-                    $('.hashseller').val(hash);
-                    
+                    $('.hashseller').val(hash);              
+                    });
+
+                    let numeroCartao = $(this).val();
+                    $('.bandeira').val('');
+                    if(numeroCartao.length > 6){
+                        let prefixCartao = numeroCartao.substr(0, 6);
+                        PagSeguroDirectPayment.getBrand({
+                            cardBin: prefixCartao,
+                            success: function(response) {
+                                $('.bandeira').val(response.brand.name);
+                            },
+                            error: function(response) {
+                                alert('Erro ao identificar bandeira do cartão.');
+                                $('.bandeira').val('');
+                            }
+                        });
                     }
-                );
             });
 
             $(".nparcela").on('blur', function() {
-                var bandeira = 'visa';
+                var bandeira = $('.bandeira').val();
+                if(bandeira == ""){
+                    alert('Por favor, preencha o número do cartão válido.');
+                }
+
                 var totalParcelas = $(this).val();
 
                 PagSeguroDirectPayment.getInstallments({
@@ -47,9 +65,37 @@
 
                         $(".totalparcela").val(valorTotalParcela);
                         $(".totalapagar").val(totalapagar);
-                    }
+                    },                 
                 })
             });
+
+            $(".pagar").on('click', function() {
+        
+                    var numeroCartao = $('.number_card').val();
+                    var inicioCartao = numeroCartao.substr(0, 6);
+                    var cvv = $('.cvv').val();
+                    var expire_month = $('.expire_month').val();
+                    var expire_year = $('.expire_year').val();
+                    // var nomeCartao = $('.nome_card').val();
+                    var hash = $('.hashseller').val();
+                    var bandeira = $('.bandeira').val();
+
+                    PagSeguroDirectPayment.createCardToken({
+                        cardNumber: numeroCartao,
+                        brand: bandeira,
+                        cvv: cvv,
+                        expirationMonth: expire_month,
+                        expirationYear: expire_year,
+                        success: function(response) {
+                            console.log(response);
+
+                        },
+                        error: function(err) {
+                            alert('Erro ao criar token do cartão. Verifique os dados.');
+                            console.log(err);
+                        }
+                    });
+                });
 
         });
 
@@ -75,6 +121,7 @@
                     <h1 class="text-center">PAGAMENTO</h1>
                     <p class="lead text-center"><small>Cartão de Crédito</small></p>
                         <input type="text" name="hashseller" class="hashseller">
+                        <input type="text" name="bandeira" class="bandeira">
                         <div class="form-group">
                             <label for="card-number">Número do Cartão</label>
                             <input type="text" class="number_card form-control" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
@@ -111,7 +158,7 @@
                             <label for="totalapagar">Total a Pagar</label>
                             <input type="text" class="totalapagar form-control" id="totalapagar" name="totalapagar" placeholder="" readonly>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-3">Pagar</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-3 pagar">Pagar</button>
                 </div>
 
                 <div class="col-md-5 mx-auto"> 
