@@ -11,21 +11,62 @@ use App\Models\{
     Product
 };
 use App\Services\SaleService;
+use Exception;
+use FFI\Exception as FFIException;
+use PagSeguro\Configuration\Configure;
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\Payment;
+use PagSeguro\Domains\Requests\PreApproval;
+use PagSeguro\Domains\Requests\Sender;
+use PagSeguro\Domains\Requests\Shipping;
+use PagSeguro\Domains\Requests\Item;
+use PagSeguro\Domains\Requests\DirectPayment\CreditCard;
+use PagSeguro\Domains\Requests\DirectPayment\Boleto;
+use PagSeguro\Domains\Requests\DirectPayment\OnlineDebit;
+
+
+
+
+
 
 class OrderController extends Controller
 {
-
+    
     protected $orders;
     protected $products;
     protected $users;
     protected $orderItems;
+    private $_configs;
 
+    
+    
     public function __construct(Order $orderModel, Product $productModel, User $userModel, OrderItem $orderItemModel)
     {
         $this->orders = $orderModel;
         $this->products = $productModel;
         $this->users = $userModel;
         $this->orderItems = $orderItemModel;
+        $this->_configs = new Configure();
+        $this->_configs->setCharset('UTF-8');
+        $this->_configs->setAccountCredentials(env('PAGSEGURO_EMAIL'), env('PAGSEGURO_TOKEN'));
+        $this->_configs->setEnvironment('sandbox');
+        // $this->_configs->setLog(true, storage_path('logs/pagseguro_' . date('Y-m-d') . '.log'));
+
+        Library::initialize($this->_configs);
+        
+        // try {
+        //     Library::initialize();
+        //     Library::cmsVersion()->setName("My project")->setRelease("0.0.1");
+        //     Library::moduleVersion()->setName("My project")->setRelease("0.0.1");
+        // } catch (Exception $e) {
+        //     die($e);
+        // }
+        
+    }
+
+    public function getCredential()
+    {
+        return $this->_configs->getAccountCredentials();
     }
     
     public function index(Request $request)
@@ -183,16 +224,6 @@ class OrderController extends Controller
                 'subtotal' => $request->input('subtotal'.$orderItem->id),
             ]);
         });
-        
-        
-    //    $products = $this->products::where('name', $request->input('name'.$product->id))->get();
-    //    dd($products);
-    //      $products->each(function($product) use ($request) {
-    //             $product->update([
-    //              'name' => $request->input('name'.$product->id),
-    //             ]);
-                
-    //       });
     
         
         return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
@@ -213,11 +244,30 @@ class OrderController extends Controller
     public function payment(Request $request)
     {
        $data = [];
-
        $user = User::findOrFail(Auth::user()->id);
-    //    dd($user);
+        $data['user'] = $user;
+        $cart = session()->get('cart');
+        $data['cart'] = $cart;
 
-        //  $data['payment'] = $request->input('payment');
+       $sessionCode = \PagSeguro\Services\Session::create(
+            $this->getCredential()
+        );
+
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        $data['total'] = $total;
+
+        $IDSession = $sessionCode->getResult();
+        $data["sessionID"] = $IDSession;
+        // $data['sessionCode'] = $sessionCode->getResult();
+        // $cart = session()->get('cart');
+        // $data['cart'] = $cart;
+        // $data['total'] = $cart->total();
+        // $data['user'] = Auth::user();
+        
+
 
         return view('checkout.payment', $data);
 
@@ -230,11 +280,85 @@ class OrderController extends Controller
         $saleService = new SaleService();
         $result = $saleService->finalizeSale($products, Auth::user());
     
-       
+    //    dd($result);
         if ($result['status'] == 'success') {
             session()->forget('cart');
-            return redirect()->route('cart.index')->with('success', $result['message']);
+
+            $creditCard = new \PagSeguro\Domains\Requests\DirectPayment\CreditCard();
+            $creditCard->setReference("PED_".$result['orderid']);
+            $creditCard->setCurrency("BRL");
+
+            foreach ($products as $product) {
+                $creditCard->addItems()->withParameters(
+                    $product['id'],
+                    $product['name'],
+                    $product['quantity'],
+                    $product['price'],
+                );
+            }
+
+            $user = User::findOrFail(Auth::user()->id);
+
+            $creditCard->setSender()->setName($user->name);
+            $creditCard->setSender()->setEmail($user->email);
+            $creditCard->setSender()->setDocument()->withParameters(
+                'CPF',
+                $user->cpf
+            );
+            $creditCard->setSender()->setHash($request->input('hashseller'));
+            $creditCard->setSender()->setPhone()->withParameters(
+                71,
+                999999999
+            );
+
+            $creditCard->setShipping()->setAddress()->withParameters(
+                'Rua Amazônia',
+                '15',
+                'Centro',
+                '22222222',
+                'Salvador',
+                'BA',
+                'BRA',
+                'Casa',
+            );
+
+            $creditCard->setBilling()->setAddress()->withParameters(
+                'Rua Amazônia',
+                '15',
+                'Centro',
+                '22222222',
+                'Salvador',
+                'BA',
+                'BRA',
+                'Casa',                          
+            );
+
+            $creditCard->setToken("9ac8929d9df344f3a3367e87b10f5d19");
+
+            $nparcela = $request->input('nparcela');
+            $totalapagar = $request->input('totalapagar');
+            $totalparcela = $request->input('totalparcela');
+
+            $creditCard->setInstallment()->withParameters($nparcela, number_format($totalparcela, 2, '.', ''));
+
+            $creditCard->setHolder()->setName($user->name);
+            $creditCard->setHolder()->setBirthDate("18/01/1990");
+            $creditCard->setHolder()->setDocument()->withParameters(
+                'CPF',
+                $user->cpf
+            );
+            $creditCard->setHolder()->setPhone()->withParameters(
+                71,
+                999999999
+            );
+
+            $creditCard->setMode('DEFAULT');
+            $result = $creditCard->register($this->getCredential());
+        
+            
+            // return redirect()->route('cart.index')->with('success', 'Compra realizada com sucesso!');
         } else {
+            echo "Erro ao realizar a compra";
             return redirect()->route('cart.index')->with('error', $result['message']);
         }
 

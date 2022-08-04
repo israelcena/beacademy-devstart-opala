@@ -14,8 +14,8 @@
 
     <div class="container mt-5 mb-3">
         <div class="row d-flex">
-            <h1 class="text-center text-secondary fs-2">Finalizar Compra</h1>
-            <p class="lead text-center text-secondary"><small>Hummm, já é quase seu!</small></p>
+            <h1 class="text-center text-secondary fs-2">Passo 1 de 2</h1>
+            <p class="lead text-center text-secondary">Confirmar Dados</p>
             <div class="col-md-12 mt-3">
                 <div class="container">
                     @if(Session::has('success'))
@@ -129,21 +129,19 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                        <h3 class="text-center fs-4 text-secondary">Método de pagamento</h3>
+                        {{-- <h3 class="text-center fs-4 text-secondary">Método de pagamento</h3> --}}
                         <form action="{{ route('order.payment') }}" method="post">
                             @csrf
-                            <div class="form-group mb-3 col-md-12">
+                            {{-- <div class="form-group mb-3 col-md-12">
                                 <label for="payment">Método de pagamento</label>
                                 <select class="form-control" id="payment" name="payment" required>
                                     <option value="">Selecione</option>
-                                    <option value="Pix">Pix</option>
-                                    <option value="Débito">Boleto</option>
-                                    <option value="Dinheiro">Dinheiro</option>
+                                    <option value="Pix">Cartão de Crédito</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-md-12 mt-5">
                                 <a href="{{ route('cart.index') }}" class="btn btn-primary btn-block">Voltar ao carrinho</a>
-                                <button type="submit" class="btn btn-danger btn-block">Comprar</button>
+                                <button type="submit" class="btn btn-danger btn-block">Confirmar</button>
                             </div>
 
 

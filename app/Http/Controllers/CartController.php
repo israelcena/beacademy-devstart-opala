@@ -26,14 +26,6 @@ class CartController extends Controller
         // dd($user->id);
         
         $cart = session()->get('cart');
-        // $total = $this->total($cart);
-        // if($cart){
-        //     $total = 0;
-        //     foreach ($cart as $item) {
-        //     $total += $item['price'] * $item['quantity'];
-        // }
-        // }
-        
         
         return view('cart.index', compact('cart', 'user'));
     }
