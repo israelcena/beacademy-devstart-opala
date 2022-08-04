@@ -41,10 +41,10 @@
               <a class="btn btn-brown-open dropdown-toggle" href="#" role="button" id="menuconta" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
               <ul class="dropdown-menu" aria-labelledby="menuconta">
                 <li class="">
-                  <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}">Minha conta</a>
+                  <a class="dropdown-item fs-4" href="/perfil/{{ Auth::user()->id }}">Minha conta</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
+                  <a class="dropdown-item fs-4" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                   </form>

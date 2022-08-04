@@ -46,20 +46,13 @@
     transition-duration: 0.35s;
 } */
 
-/* Cards */
-.card {
-    background-color: #FFEDDD;
-    border-radius: 50px;
-    font-size: 2rem;
-    padding: 0.8rem;
-}
 
 /* Icons */
 
 /* add item no carrinho */
 i.bi-cart-plus {
     font-size: 2.8rem;
-    color: var(--highlight-color);
+    color: var(--footer-color);
 }
 i.bi-cart {
     color: var(--highlight-color);
@@ -94,4 +87,7 @@ textarea:focus, input:focus, select:focus {
     color: var(--highlight-color);
 }
 
-/* Card Login */
+.bg-contrast {
+    background-color: var(--background-color);
+    opacity: 0.8;
+}
