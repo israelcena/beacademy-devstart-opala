@@ -1,4 +1,5 @@
-<div class="col-md-2 -lg h-100 min-vh-100 menu-sidebar-admin shadow-sm"><div class="container-fluid min-vh-100">
+<div class="col-md-2 -lg h-100 min-vh-100 menu-sidebar-admin shadow-sm">
+  <div class="container-fluid min-vh-100">
     <div class="row d-flex">
         <div class="navbar">  
             <div class="container justify-content-center">
