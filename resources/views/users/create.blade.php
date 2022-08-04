@@ -1,8 +1,8 @@
 <x-guest-layout>
 
-  <div>
-      @include('layouts.navbar')
-  </div>
+    
+  @include('layouts.header')
+    
 
   <div class="container mt-5">
       <div class="row my-3">

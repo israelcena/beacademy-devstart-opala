@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    
+  @include('layouts.header')
+  
 
     <div class="container">
         @if(Session::has('success'))
@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-2 -lg bg-light min-vh-100">
+        <div class="col-md-2 -lg bg-light min-vh-100  menu-sidebar-admin">
             @include('components.sidebar-client')
         </div>
         

@@ -1,5 +1,3 @@
 <x-guest-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    @include('layouts.header')
 </x-guest-layout>
