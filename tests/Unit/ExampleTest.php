@@ -3,6 +3,9 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Illuminate\Testing\TestView;
+
+use function PHPUnit\Framework\isTrue;
 
 class ExampleTest extends TestCase
 {
@@ -11,7 +14,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_that_true_is_true()
+    public function test_site_is_working()
     {
         $this->assertTrue(true);
     }
