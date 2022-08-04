@@ -210,6 +210,20 @@ class OrderController extends Controller
         return view('checkout.index', compact('cart', 'user'));
     }
 
+    public function payment(Request $request)
+    {
+       $data = [];
+
+       $user = User::findOrFail(Auth::user()->id);
+    //    dd($user);
+
+        //  $data['payment'] = $request->input('payment');
+
+        return view('checkout.payment', $data);
+
+       
+    }
+
     public function checkoutStore(Request $request)
     {
         $products = session()->get('cart');
