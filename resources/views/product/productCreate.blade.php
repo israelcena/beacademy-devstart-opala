@@ -4,9 +4,8 @@
 
   <div class="row">
 
-    <div class="col-md-2 -lg bg-light min-h-100">
-      @include('layouts.sidebar')
-    </div>
+    @include('layouts.sidebar')
+    
     <div class="col-md-9 mt-5">
       <div class="container">
         <div class="row">
