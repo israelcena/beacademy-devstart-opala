@@ -11,21 +11,53 @@ use App\Models\{
     Product
 };
 use App\Services\SaleService;
+use Exception;
+use FFI\Exception as FFIException;
+use PagSeguro\Configuration\Configure;
+use PagSeguro\Library;
+
+
+
+
 
 class OrderController extends Controller
 {
-
+    
     protected $orders;
     protected $products;
     protected $users;
     protected $orderItems;
+    private $_configs;
 
+    
+    
     public function __construct(Order $orderModel, Product $productModel, User $userModel, OrderItem $orderItemModel)
     {
         $this->orders = $orderModel;
         $this->products = $productModel;
         $this->users = $userModel;
         $this->orderItems = $orderItemModel;
+        $this->_configs = new Configure();
+        $this->_configs->setCharset('UTF-8');
+        $this->_configs->setAccountCredentials(env('PAGSEGURO_EMAIL'), env('PAGSEGURO_TOKEN'));
+        $this->_configs->setEnvironment('sandbox');
+        // $this->_configs->setLog(true, storage_path('logs/pagseguro_' . date('Y-m-d') . '.log'));
+
+        Library::initialize($this->_configs);
+        
+        // try {
+        //     Library::initialize();
+        //     Library::cmsVersion()->setName("My project")->setRelease("0.0.1");
+        //     Library::moduleVersion()->setName("My project")->setRelease("0.0.1");
+        // } catch (Exception $e) {
+        //     die($e);
+        // }
+        
+    }
+
+    public function getCredential()
+    {
+        return $this->_configs->getAccountCredentials();
     }
     
     public function index(Request $request)
@@ -213,11 +245,21 @@ class OrderController extends Controller
     public function payment(Request $request)
     {
        $data = [];
-
        $user = User::findOrFail(Auth::user()->id);
-    //    dd($user);
 
-        //  $data['payment'] = $request->input('payment');
+       $sessionCode = \PagSeguro\Services\Session::create(
+            $this->getCredential()
+        );
+
+        $IDSession = $sessionCode->getResult();
+        $data["sessionID"] = $IDSession;
+        // $data['sessionCode'] = $sessionCode->getResult();
+        // $cart = session()->get('cart');
+        // $data['cart'] = $cart;
+        // $data['total'] = $cart->total();
+        // $data['user'] = Auth::user();
+        
+
 
         return view('checkout.payment', $data);
 

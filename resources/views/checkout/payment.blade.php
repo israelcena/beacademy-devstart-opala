@@ -2,6 +2,34 @@
     <div>
         @include('layouts.navbar')
     </div>
+    @section('scripts')
+    <script type="text/javascript" src=
+    "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        function carregar() {
+            PagSeguroDirectPayment.setSessionId('{{ $sessionID }}');
+        }
+        $(function() {
+            carregar();
+
+            $('.number_card').on('blur', function() {
+                PagSeguroDirectPayment.onSenderHashReady(function(response) {
+                    if (response.status == 'error') {
+                        console.log(response.message);
+                    } 
+                    
+                    var hash = response.senderHash;
+                    $('.hashseller').val(hash);
+                    
+                    }
+                );
+            });
+
+        });
+
+    </script>
+    @endsection
 
     <div class="container">
         @if (Session::has('error'))
@@ -20,9 +48,10 @@
                 <p class="lead text-center"><small>Cartão de Crédito</small></p>
                 <form action="" method="post">
                     @csrf
+                    <input type="text" name="hashseller" class="hashseller">
                     <div class="form-group">
                         <label for="card-number">Número do Cartão</label>
-                        <input type="text" class=" number_card form-control" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
+                        <input type="text" class="number_card form-control" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
                     </div>
                     <div class="form-group">
                         <label for="card-expiry-month">Mês de Validade</label>
