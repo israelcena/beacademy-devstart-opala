@@ -131,7 +131,7 @@
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <h3 class="text-center fs-4 text-secondary">Método de pagamento</h3>
-                        <form action="{{ route('order.checkoutstore') }}" method="post">
+                        <form action="{{ route('order.payment') }}" method="post">
                             @csrf
                             <div class="form-group mb-3 col-md-12">
                                 <label for="payment">Método de pagamento</label>
