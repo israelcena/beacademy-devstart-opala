@@ -1,8 +1,7 @@
 <x-app-layout>
-  <link rel="stylesheet" href="/css/style.css">
-  <div>
-    @include('layouts.navbar')
-  </div>
+  
+  @include('layouts.header')
+  
   <div class="container">
     @if(Session::has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">

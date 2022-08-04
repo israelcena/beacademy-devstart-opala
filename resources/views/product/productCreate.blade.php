@@ -1,9 +1,7 @@
 <x-app-layout>
-  <link rel="stylesheet" href="/css/style.css">
 
-  <div>
-    @include('layouts.navbar')
-  </div>
+  @include('layouts.header')
+
   <div class="row">
 
     <div class="col-md-2 -lg bg-light min-h-100">
