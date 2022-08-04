@@ -1,12 +1,14 @@
 @import url("root.css");
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Ubuntu&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -17,6 +19,7 @@ html {
 html body {
     background-color: var(--background-color);
     font-size: 1.6rem;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 img {

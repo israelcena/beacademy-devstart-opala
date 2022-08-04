@@ -166,7 +166,10 @@
 
 
 /* Estilos adicionais feitos por Daniel Attias: */
-.section-hero {
-  background-color: var(--contrast-color);
-  height: 400px;
+h2.card-title {
+  font-family: 'Berkshire Swash', cursive;
 }
+p.preco {
+  color: var(--footer-color);
+}
+
