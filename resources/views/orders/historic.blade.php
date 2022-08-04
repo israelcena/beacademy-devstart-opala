@@ -1,7 +1,6 @@
 <x-app-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    
+    @include('layouts.header')
     
     <div class="row">
       

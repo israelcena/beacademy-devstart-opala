@@ -60,6 +60,9 @@ i.bi-cart {
 }
 
 /* inputs */
+.form-label, .form-control, .form-select {
+    font-size: 1.8rem;
+}
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
@@ -87,7 +90,11 @@ textarea:focus, input:focus, select:focus {
     color: var(--highlight-color);
 }
 
-.bg-contrast {
+/* .bg-contrast {
     background-color: var(--background-color);
     opacity: 0.8;
+} */
+.bg-home {
+    background-image: url("https://thumbs.dreamstime.com/b/pastry-sweet-bakery-seamless-pattern-baked-goods-confectionery-baking-design-hand-drawn-ice-cream-cakes-coffee-doodles-187106628.jpg");
+    background-size: 180px;
 }

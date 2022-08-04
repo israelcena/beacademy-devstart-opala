@@ -11,6 +11,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravellegends/pt-br-validator": "^9.0",
+        "pagseguro/pagseguro-php-sdk": "^4.2",
         "twbs/bootstrap-icons": "^1.9"
     },
     "require-dev": {

@@ -1,7 +1,5 @@
 <x-app-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    @include('layouts.header')
 
     <div class="container mt-5 d-flex justify-content-center">
         @if(Session::has('success'))
