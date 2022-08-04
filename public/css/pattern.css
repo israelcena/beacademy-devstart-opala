@@ -49,9 +49,10 @@
 /* Cards */
 .card {
     background-color: #FFEDDD;
-    border-radius: 50px;
+    border-radius: 200px;
     font-size: 2rem;
-    padding: 0.8rem;
+    width: 95%;
+    height: 100%;
 }
 
 /* Icons */
