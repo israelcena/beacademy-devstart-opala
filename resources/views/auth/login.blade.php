@@ -2,7 +2,6 @@
     <x-auth-card>
         <x-slot name="logo" class="">
             <a href="/" class="">
-                {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
                 <img src="{{ asset('storage/logo/logo.png') }}" alt="Logo da loja E Ai Docinho" class="img-fluid mx-auto" style="width: 30%">
             </a>
         </x-slot>
