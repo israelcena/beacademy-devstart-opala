@@ -215,16 +215,6 @@ class OrderController extends Controller
                 'subtotal' => $request->input('subtotal'.$orderItem->id),
             ]);
         });
-        
-        
-    //    $products = $this->products::where('name', $request->input('name'.$product->id))->get();
-    //    dd($products);
-    //      $products->each(function($product) use ($request) {
-    //             $product->update([
-    //              'name' => $request->input('name'.$product->id),
-    //             ]);
-                
-    //       });
     
         
         return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
@@ -246,10 +236,19 @@ class OrderController extends Controller
     {
        $data = [];
        $user = User::findOrFail(Auth::user()->id);
+        $data['user'] = $user;
+        $cart = session()->get('cart');
+        $data['cart'] = $cart;
 
        $sessionCode = \PagSeguro\Services\Session::create(
             $this->getCredential()
         );
+
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        $data['total'] = $total;
 
         $IDSession = $sessionCode->getResult();
         $data["sessionID"] = $IDSession;

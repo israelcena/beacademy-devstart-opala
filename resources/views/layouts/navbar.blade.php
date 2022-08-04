@@ -63,6 +63,11 @@
                 </a>
               </li>
                 @endif
+                <li class="nav-link text-decoration-none">
+                  <a href="{{ route('cart.index') }}" class="">
+                    <span><i class="bi bi-cart ms-3"></i></span>
+                  </a>
+                </li>
             </ul>
   
           </div>
