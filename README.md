@@ -1,5 +1,5 @@
-![header](https://pedrasecristais.com/wp-content/uploads/2018/06/PEDRA-OPALA-2-900x500.jpg)
-# Squad Opala
+
+# E-commerce Doceria - Squad Opala
 [![PHP 8][Php.com]][Php-url]
 [![Mysql][Mysql.com]][Mysql-url]
 [![NodeJS][Nodejs.com]][Nodejs-url]
@@ -8,7 +8,7 @@
 [![TailwindCss][TailwindCss.com]][TailwindCss-url]
 
 
-## <img src="https://img.icons8.com/color/2x/group-of-projects.png" width="30"> Business project 
+## :newspaper: Business project 
 
 Criar um **CHECKOUT** para uma **PLATAFORMA** de **VENDAS ONLINE**
 
@@ -16,9 +16,9 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 *O contexto deste projeto é mínimo no que diz respeito a operações de e-commerce e foca na efetivação do pagamento, portanto questões como logística, descontos e afins não serão levados em consideração na descrição e execução do projeto.*
 
-## <img src="https://img.icons8.com/color/2x/settings.png" width="30"> Installation
+## :gear: Installation
 
-### Initial Settings:
+### :one: Initial Settings:
 
 ```bash
   git clone https://github.com/israelcena/beacademy-devstart-opala.git
@@ -27,7 +27,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   
   composer install
 
-  # Copiar arquivo .env para pasta do projeto
+  # Renomear arquivo '.env.example' para '.env' e ajustar configurações internas caso ache necessário
 
   php artisan key:generate
   
@@ -40,7 +40,7 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
   php artisan migrate
 ```
 
-### Update with the latest version:
+### :arrows_counterclockwise: Update with the latest version:
 
 ```bash
   git pull origin main
@@ -55,13 +55,13 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 ```
 ## ✅ Tasks and Requirements:
 
-- Banco de dados Mysql
-- Autenticação e Cadastro de Usuários
-- Cadastro de Produtos
-- Cadastro de Pedidos
-- Checkout
-- Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
-- Criação de testes unitários para todas as regras de negócio
+- [x] Banco de dados Mysql
+- [x] Autenticação e Cadastro de Usuários
+- [x] Cadastro de Produtos
+- [x] Cadastro de Pedidos
+- [x] Checkout
+- [ ] Api da **Paylivre** para efetivação dos pagamentos (anexar documentação)
+- [ ] Criação de testes unitários para todas as regras de negócio
 
 ## Squad Members
 
