@@ -21,6 +21,7 @@
 
                 var hash = response.senderHash;
                 $('.hashseller').val(hash);
+                console.log(hash);
             });
 
             let numeroCartao = $(this).val();
@@ -81,6 +82,7 @@
             var hash = $('.hashseller').val();
             var bandeira = $('.bandeira').val();
 
+
             PagSeguroDirectPayment.createCardToken({
                 cardNumber: numeroCartao,
                 brand: bandeira,
@@ -88,7 +90,19 @@
                 expirationMonth: expire_month,
                 expirationYear: expire_year,
                 success: function(response) {
+                    $.post("{{ route('order.checkoutstore') }}", {
+                        hashseller: hash,
+                        cardtoken : response.card.token,
+                        nparcela: $('.nparcela').val(),
+                        totalapagar: $('.totalapagar').val(),
+                        totalparcela: $('.totalparcela').val(),
+                        // console.log(response);
+                    }, function(result) {
+                        alert(result);
+                    });
                     console.log(response);
+                    console.log(response.card.token);
+                    console.log(PagSeguroDirectPayment);
 
                 },
                 error: function(err) {
@@ -113,65 +127,73 @@
     </div>
 
     <div class="container mt-5 mb-3">
-        <form action="" method="post">
+        <form action="{{ route('order.checkoutstore') }}" method="POST">
+            @csrf
+            @method('POST')
             <div class="row col-md-12">
-                @csrf
 
                 <div class="col-md-5">
-                    <h1 class="text-center">PAGAMENTO</h1>
-                    <p class="lead text-center"><small>Cartão de Crédito</small></p>
-                    <input type="text" name="hashseller" class="hashseller">
-                    <input type="text" name="bandeira" class="bandeira">
-                    <div class="form-group">
+                    <h3 class="text-center text-secondary fs-3">Dados para pagamento</h3>
+                    <p class="lead text-center text-secondary"><small>Cartão de Crédito</small></p>
+                    <input type="hidden" name="hashseller" class="hashseller">
+                    <input type="hidden" name="bandeira" class="bandeira">
+                    <div class="form-group mb-3 col-md-12">
+                        <label for="payment">Método de pagamento</label>
+                        <select class="form-control" id="payment" name="payment" required>
+                            <option value="">Selecione</option>
+                            <option value="CreditCard">Cartão de Crédito</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
                         <label for="card-number">Número do Cartão</label>
                         <input type="text" class="number_card form-control" id="card-number" name="card-number"
                             placeholder="0000 0000 0000 0000">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="card-expiry-month">Mês de Validade</label>
                         <input type="text" class="expire_month form-control" id="card-expiry-month"
                             name="card-expiry-month" placeholder="MM">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="card-expiry-year">Ano de Validade</label>
                         <input type="text" class="expire_year form-control" id="card-expiry-year"
                             name="card-expiry-year" placeholder="YYYY">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="card-cvc">Código de Segurança</label>
                         <input type="text" class="cvv form-control" id="card-cvc" name="card-cvc" placeholder="CVC">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="card-name">Nome no Cartão</label>
                         <input type="text" class="name_card form-control" id="card-name" name="card-name"
                             placeholder="Nome no Cartão">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="nparcela">Número de parcelas</label>
                         <input type="text" class="nparcela form-control" id="nparcela" name="nparcela"
                             placeholder="Quantidade de parcelas">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="valortotal">Total</label>
                         <input type="text" class="valortotal form-control" id="valortotal" name="valortotal"
                             placeholder="Total" value="{{ $total }}" readonly>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="totalparcela">Valor das parcelas</label>
                         <input type="text" class="totalparcela form-control" id="totalparcela" name="totalparcela"
                             placeholder="" readonly>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="totalapagar">Total a Pagar</label>
                         <input type="text" class="totalapagar form-control" id="totalapagar" name="totalapagar"
                             placeholder="" readonly>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block mt-3 pagar">Pagar</button>
+                    <input type="submit" class="btn btn-primary btn-block mt-3 pagar">Comprar</>
                 </div>
 
                 <div class="col-md-5 mx-auto">
-                    <h1 class="text-center mb-5">Resumo da compra</h1>
-                    <table class="table text-center">
+                    <h3 class="text-center text-secondary fs-3 mb-5">Resumo da compra</h1>
+                    <table class="table text-center table-warning">
                         <thead>
                             <tr>
                                 <th>Produto</th>

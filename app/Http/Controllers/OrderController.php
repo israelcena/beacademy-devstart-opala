@@ -15,6 +15,15 @@ use Exception;
 use FFI\Exception as FFIException;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Library;
+use PagSeguro\Domains\Requests\Payment;
+use PagSeguro\Domains\Requests\PreApproval;
+use PagSeguro\Domains\Requests\Sender;
+use PagSeguro\Domains\Requests\Shipping;
+use PagSeguro\Domains\Requests\Item;
+use PagSeguro\Domains\Requests\DirectPayment\CreditCard;
+use PagSeguro\Domains\Requests\DirectPayment\Boleto;
+use PagSeguro\Domains\Requests\DirectPayment\OnlineDebit;
+
 
 
 
@@ -271,11 +280,85 @@ class OrderController extends Controller
         $saleService = new SaleService();
         $result = $saleService->finalizeSale($products, Auth::user());
     
-       
+    //    dd($result);
         if ($result['status'] == 'success') {
             session()->forget('cart');
-            return redirect()->route('cart.index')->with('success', $result['message']);
+
+            $creditCard = new \PagSeguro\Domains\Requests\DirectPayment\CreditCard();
+            $creditCard->setReference("PED_".$result['orderid']);
+            $creditCard->setCurrency("BRL");
+
+            foreach ($products as $product) {
+                $creditCard->addItems()->withParameters(
+                    $product['id'],
+                    $product['name'],
+                    $product['quantity'],
+                    $product['price'],
+                );
+            }
+
+            $user = User::findOrFail(Auth::user()->id);
+
+            $creditCard->setSender()->setName($user->name);
+            $creditCard->setSender()->setEmail($user->email);
+            $creditCard->setSender()->setDocument()->withParameters(
+                'CPF',
+                $user->cpf
+            );
+            $creditCard->setSender()->setHash($request->input('hashseller'));
+            $creditCard->setSender()->setPhone()->withParameters(
+                71,
+                999999999
+            );
+
+            $creditCard->setShipping()->setAddress()->withParameters(
+                'Rua Amazônia',
+                '15',
+                'Centro',
+                '22222222',
+                'Salvador',
+                'BA',
+                'BRA',
+                'Casa',
+            );
+
+            $creditCard->setBilling()->setAddress()->withParameters(
+                'Rua Amazônia',
+                '15',
+                'Centro',
+                '22222222',
+                'Salvador',
+                'BA',
+                'BRA',
+                'Casa',                          
+            );
+
+            $creditCard->setToken("9ac8929d9df344f3a3367e87b10f5d19");
+
+            $nparcela = $request->input('nparcela');
+            $totalapagar = $request->input('totalapagar');
+            $totalparcela = $request->input('totalparcela');
+
+            $creditCard->setInstallment()->withParameters($nparcela, number_format($totalparcela, 2, '.', ''));
+
+            $creditCard->setHolder()->setName($user->name);
+            $creditCard->setHolder()->setBirthDate("18/01/1990");
+            $creditCard->setHolder()->setDocument()->withParameters(
+                'CPF',
+                $user->cpf
+            );
+            $creditCard->setHolder()->setPhone()->withParameters(
+                71,
+                999999999
+            );
+
+            $creditCard->setMode('DEFAULT');
+            $result = $creditCard->register($this->getCredential());
+        
+            
+            // return redirect()->route('cart.index')->with('success', 'Compra realizada com sucesso!');
         } else {
+            echo "Erro ao realizar a compra";
             return redirect()->route('cart.index')->with('error', $result['message']);
         }
 
