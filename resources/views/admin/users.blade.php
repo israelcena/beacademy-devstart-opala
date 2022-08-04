@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div>
-        @include('layouts.navbar')
-    </div>
+    
+    @include('layouts.header')
+    
     {{-- <div class="container">
         @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -12,10 +12,10 @@
     </div> --}}
     
     <div class="row">
-        <div class="col-md-2 -lg bg-light min-vh-100 h-auto">
-            @include('layouts.sidebar')
-        </div>
-        <div class="col-md-9 h-100 text-center mt-5">
+        
+        @include('layouts.sidebar')
+
+        <div class="col-md-9 h-100 text-center mt-5 bg-contrast">
             @include('users.index')
         </div>
     </div>

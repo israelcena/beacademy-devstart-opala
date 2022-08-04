@@ -7,7 +7,6 @@
   color: #331A15;
   font-family: 'Berkshire Swash';
   font-style: normal;
-  font-size: 126px;
   text-align: center;
 }
 
@@ -173,3 +172,19 @@ p.preco {
   color: var(--footer-color);
 }
 
+
+/* Cards */
+.card-product-home {
+  background-color: #FFEDDD;
+  border-radius: 200px;
+  font-size: 2rem;
+  width: 95%;
+  height: 100%;
+}
+
+/* Sidebar Admin */
+.menu-sidebar-admin {
+  font-size: 1.8rem;
+  background-color: var(--contrast-color);
+  color: var(--highlight-color);
+}

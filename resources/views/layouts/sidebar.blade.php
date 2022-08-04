@@ -1,13 +1,9 @@
-<div class="container-fluid min-vh-100">
-    <div class="row align-middle">
-        <h2 class="fs-5 text-center mt-3">Painel de controle</h2>
-    </div>
-    <hr>
+<div class="col-md-2 -lg h-100 min-vh-100 menu-sidebar-admin shadow-sm"><div class="container-fluid min-vh-100">
     <div class="row d-flex">
         <div class="navbar">  
             <div class="container justify-content-center">
                 <ul class="navbar-nav w-100 text-center">
-                    <li class="nav-item fs-5 border-bottom">
+                    <li class="nav-item border-bottom">
                         <a class="nav-link" href="/admin/produtos">
                             <span>
                                 <i class="bi bi-bag-check-fill"></i>
@@ -15,7 +11,7 @@
                             Produtos
                         </a>
                     </li>
-                    <li class="nav-item fs-5 border-bottom">
+                    <li class="nav-item border-bottom">
                         <a class="nav-link" href="{{ route('admin.users') }}">
                             <span>
                                 <i class="bi bi-people-fill"></i>
@@ -23,7 +19,7 @@
                             Usuários
                         </a>
                     </li>
-                    <li class="nav-item fs-5 border-bottom">
+                    <li class="nav-item border-bottom">
                         <a class="nav-link" href="{{ route('admin.orders') }}">
                             <span>
                                 <i class="bi bi-cart-check-fill"></i>
@@ -36,3 +32,4 @@
          </div>
     </div>
   </div>
+</div>

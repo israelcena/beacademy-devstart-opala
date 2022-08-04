@@ -17,7 +17,10 @@ html {
 }
 
 html body {
+    /* background-image: url('https://st.depositphotos.com/1172692/3983/v/450/depositphotos_39833949-stock-illustration-seamless-dark-vector-pattern-or.jpg'); */
     background-color: var(--background-color);
+    background-image: url("https://thumbs.dreamstime.com/b/pastry-sweet-bakery-seamless-pattern-baked-goods-confectionery-baking-design-hand-drawn-ice-cream-cakes-coffee-doodles-187106628.jpg");
+    background-size: 180px;
     font-size: 1.6rem;
     font-family: 'Ubuntu', sans-serif;
 }
