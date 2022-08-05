@@ -55,19 +55,95 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
   composer install
 ```
-## ✅ Tasks and Requirements:
+## :heavy_check_mark: Tasks and Requirements:
 
 - [x] Banco de dados Mysql
 - [x] Autenticação e Cadastro de Usuários
 - [x] Cadastro de Produtos
 - [x] Cadastro de Pedidos
 - [x] Checkout
-<!-- - [ ] Api da **Paylivre** para efetivação dos pagamentos (anexar documentação) -->
-- [ ] Criação de testes unitários para todas as regras de negócio
+- [x] Criação de testes unitários
+- [x] Integração com API de pagamento
 
-## Squad Members
+## :rocket: Squad Members - Alphabetically
 
 <table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/adrianoarch">
+        <img src="https://github.com/adrianoarch.png" width="100px;" alt="Adriano de Oliveira"/><br>
+        <sub>
+          <b>Adriano de Oliveira</b>
+        </sub>
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>Maior contribuidor da squad</li>
+        <li>Facilitador interino</li>
+        <li>Front-end</li>
+        <li>Back-end</li>
+        <li>Revisão</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/camilaftin">
+        <img src="https://github.com/camilaftin.png" width="100px;" alt="Camilla F Tinelli"/><br>
+        <sub>
+          <b>Camilla F Tinelli</b>
+        </sub>
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>Nome do projeto "E aí, docinho?"</li>
+        <li>Criação de wireframes de baixa fidelidade</li>
+        <li>Front-end</li>
+        <li>Back-end</li>
+        <li>Revisão</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/attiasdan">
+        <img src="https://github.com/attiasdan.png" width="100px;" alt="Daniel Attias"/><br>
+        <sub>
+          <b>Daniel Attias</b>
+        </sub>
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>Modelagem conceitual e lógica do banco de dados</li>
+        <li>Criação de diagrama de casos de uso</li>
+        <li>Criação de wireframe de alta fidelidade</li>
+        <li>Definição do sistema de design</li>
+        <li>Implementações e refatorações no design anterior</li>
+        <li>Revisão</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>           
+    <td align="center">
+      <a href="https://github.com/ErikMacedo">
+        <img src="https://github.com/ErikMacedo.png" width="100px;" alt="Erik Macêdo"/><br>
+        <sub>
+          <b>Erik Macêdo</b>
+        </sub>
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>Criação do logotipo</li>
+        <li>Criação de wireframes de baixa fidelidade</li>
+        <li>Contribuiu com imagens dos doces</li>
+        <li>Revisão</li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td align="center">
       <a href="https://github.com/israelcena">
@@ -77,30 +153,16 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
         </sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/attiasdan">
-        <img src="https://github.com/attiasdan.png" width="100px;" alt="Daniel Attias"/><br>
-        <sub>
-          <b>Daniel Attias</b>
-        </sub>
-      </a>
+    <td>
+      <ul>
+        <li>Facilitador titular</li>
+        <li>Back-end</li>
+        <li>Testes unitários</li>
+        <li>Revisão</li>
+      </ul>
     </td>
-    <td align="center">
-      <a href="https://github.com/camilaftin">
-        <img src="https://github.com/camilaftin.png" width="100px;" alt="Camilla F Tinelli"/><br>
-        <sub>
-          <b>Camilla F Tinelli</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/adrianoarch">
-        <img src="https://github.com/adrianoarch.png" width="100px;" alt="Adriano de Oliveira"/><br>
-        <sub>
-          <b>Adriano de Oliveira</b>
-        </sub>
-      </a>
-    </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://github.com/Wendeldev87">
         <img src="https://github.com/Wendeldev87.png" width="100px;" alt="Wendel Duarte"/><br>
@@ -108,18 +170,14 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
           <b>Wendel Duarte</b>
         </sub>
       </a>
-    </td>            
-    <td align="center">
-      <a href="https://github.com/ErikMacedo">
-        <img src="https://github.com/ErikMacedo.png" width="100px;" alt="Erik Macêdo"/><br>
-        <sub>
-          <b>Erik Macêdo</b>
-        </sub>
-      </a>
     </td>
+    <td>
+      <ul>
+        <li>Revisão</li>
+      </ul>
+    </td> 
   </tr>
 </table>
-
 
 <!-- LINKS & IMAGES -->
 [Php.com]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
@@ -139,4 +197,3 @@ Este checkout será criado em PHP, utilizando a Framework Laravel
 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-
